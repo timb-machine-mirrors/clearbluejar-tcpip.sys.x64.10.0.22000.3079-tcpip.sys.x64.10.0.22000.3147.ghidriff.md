@@ -95,7 +95,7 @@ pie showData
 
 
 ```
-ghidriff --project-location ghidra_projects --project-name ghidriff --symbols-path symbols --threaded --log-level INFO --file-log-level INFO --log-path ghidriff.log --min-func-len 10 --gdt [] --bsim --max-ram-percent 60.0 --max-section-funcs 200 tcpip.sys.x64.10.0.22000.3079 tcpip.sys.x64.10.0.22000.3147
+ghidriff --project-location ghidra_projects --project-name ghidriff --symbols-path symbols --threaded --log-level INFO --file-log-level INFO --log-path ghidriff.log --min-func-len 10 --gdt ['ntddk_64.gdt'] --bsim --max-ram-percent 60.0 --max-section-funcs 200 tcpip.sys.x64.10.0.22000.3079 tcpip.sys.x64.10.0.22000.3147
 ```
 
 
@@ -105,7 +105,7 @@ ghidriff --project-location ghidra_projects --project-name ghidriff --symbols-pa
 <details>
 
 ```
---old ['tcpip.sys.x64.10.0.22000.3079'] --new [['tcpip.sys.x64.10.0.22000.3147']] --engine VersionTrackingDiff --output-path ghidriffs --summary False --project-location ghidra_projects --project-name ghidriff --symbols-path symbols --threaded True --force-analysis False --force-diff False --no-symbols False --log-level INFO --file-log-level INFO --log-path ghidriff.log --va False --min-func-len 10 --use-calling-counts False --gdt [] --bsim True --bsim-full False --max-ram-percent 60.0 --print-flags False --jvm-args None --side-by-side False --max-section-funcs 200 --md-title None
+--old ['tcpip.sys.x64.10.0.22000.3079'] --new [['tcpip.sys.x64.10.0.22000.3147']] --engine VersionTrackingDiff --output-path ghidriffs --summary False --project-location ghidra_projects --project-name ghidriff --symbols-path symbols --threaded True --force-analysis False --force-diff False --no-symbols False --log-level INFO --file-log-level INFO --log-path ghidriff.log --va False --min-func-len 10 --use-calling-counts False --gdt ['ntddk_64.gdt'] --bsim True --bsim-full False --max-ram-percent 60.0 --print-flags False --jvm-args None --side-by-side False --max-section-funcs 200 --md-title None
 ```
 
 
@@ -140,20 +140,20 @@ wget https://msdl.microsoft.com/download/symbols/tcpip.sys/67023CB3318000/tcpip.
 +# of Bytes: 3246220
  # of Memory Blocks: 18
 -# of Instructions: 505803
--# of Defined Data: 18192
+-# of Defined Data: 18190
 -# of Functions: 6382
--# of Symbols: 68879
+-# of Symbols: 69241
 +# of Instructions: 505823
-+# of Defined Data: 18198
++# of Defined Data: 18196
 +# of Functions: 6384
-+# of Symbols: 68893
- # of Data Types: 454
++# of Symbols: 69255
+ # of Data Types: 1162
  # of Data Type Categories: 31
  Analyzed: true
  Compiler: visualstudio:unknown
  Created With Ghidra Version: 11.1
--Date Created: Fri Aug 16 16:49:26 UTC 2024
-+Date Created: Fri Aug 16 16:49:29 UTC 2024
+-Date Created: Fri Aug 16 17:00:07 UTC 2024
++Date Created: Fri Aug 16 17:00:11 UTC 2024
  Executable Format: Portable Executable (PE)
 -Executable Location: /workspaces/ghidriff/tcpip.sys.x64.10.0.22000.3079
 -Executable MD5: 13887b649adb01891a203c6969f6c311
@@ -515,12 +515,12 @@ wget https://msdl.microsoft.com/download/symbols/tcpip.sys/67023CB3318000/tcpip.
 |deleted_funcs_len|0|
 |modified_funcs_len|10|
 |added_symbols_len|8|
-|deleted_symbols_len|1|
-|diff_time|17.294471502304077|
+|deleted_symbols_len|2|
+|diff_time|17.811140298843384|
 |deleted_strings_len|0|
 |added_strings_len|0|
 |match_types|Counter({'SymbolsHash': 6378, 'ExternalsName': 764, 'ExactBytesFunctionHasher': 2, 'ExactInstructionsFunctionHasher': 2})|
-|items_to_process|21|
+|items_to_process|22|
 |diff_types|Counter({'address': 9, 'length': 7, 'code': 6, 'refcount': 5, 'called': 4, 'calling': 3, 'sig': 1})|
 |unmatched_funcs_len|2|
 |total_funcs_len|12766|
@@ -569,7 +569,7 @@ pie showData
 pie showData
     title Symbols
 "added_symbols_len" : 8
-"deleted_symbols_len" : 1
+"deleted_symbols_len" : 2
 ```
 
 ## Strings
@@ -718,13 +718,13 @@ pie showData
 ```diff
 --- WfpAleForceReclassifyLayer
 +++ WfpAleForceReclassifyLayer
-@@ -1,170 +1,170 @@
+@@ -1,173 +1,173 @@
  
  ulonglong WfpAleForceReclassifyLayer(ushort param_1)
  
  {
    int *piVar1;
-   undefined8 *puVar2;
+   _SLIST_ENTRY *p_Var2;
    code *pcVar3;
    uint uVar4;
    int iVar5;
@@ -732,142 +732,145 @@ pie showData
    undefined8 uVar7;
    ulonglong extraout_RAX;
    short sVar8;
-   uint *puVar9;
-   undefined8 *puVar10;
-   int iVar11;
+   _SLIST_ENTRY *p_Var9;
+   uint *puVar10;
+   _SLIST_ENTRY *p_Var11;
+   int iVar12;
    ulonglong unaff_RSI;
-   ulonglong uVar12;
-   longlong lVar13;
-   longlong **pplVar14;
+   ulonglong uVar13;
+   longlong lVar14;
+   longlong **pplVar15;
    ushort unaff_R12W;
    undefined2 unaff_R13W;
-   uint uVar15;
-   ulonglong uVar16;
+   uint uVar16;
    ulonglong uVar17;
+   _SLIST_ENTRY *p_Var18;
    undefined8 uStackY_b0;
    undefined8 uStackY_a8;
    undefined auStackY_a0 [8];
    undefined8 uStackY_98;
    ushort *puStackY_90;
    undefined4 *in_stack_ffffffffffffff78;
-   longlong **pplVar18;
+   longlong **pplVar19;
    
-   uVar17 = (ulonglong)param_1;
-   pplVar18 = (longlong **)&stack0xffffffffffffff88;
+   p_Var18 = (_SLIST_ENTRY *)(ulonglong)param_1;
+   pplVar19 = (longlong **)&stack0xffffffffffffff88;
    uVar4 = 0;
-   uVar12 = unaff_RSI & 0xffffffffffffff00;
-   uVar16 = 0;
-   puVar10 = (undefined8 *)&stack0xffffffffffffff88;
+   uVar13 = unaff_RSI & 0xffffffffffffff00;
+   uVar17 = 0;
+   p_Var11 = (_SLIST_ENTRY *)&stack0xffffffffffffff88;
    if (*endpointHandleTable != 0) {
      do {
 -      uStackY_b0 = 0x1c009f320;
 +      uStackY_b0 = 0x1c009f7c0;
-       RtlAcquireScalableWriteLock((longlong)(endpointHandleTable + uVar16 * 0x60 + 0x10));
-       puVar9 = endpointHandleTable + uVar16 * 0x60 + 0x60;
+       RtlAcquireScalableWriteLock
+                 ((PKSPIN_LOCK)(endpointHandleTable + uVar17 * 0x60 + 0x10),
+                  (PKLOCK_QUEUE_HANDLE)&stack0xffffffffffffff98);
+       puVar10 = endpointHandleTable + uVar17 * 0x60 + 0x60;
 -      uStackY_b0 = 0x1c009f33e;
 +      uStackY_b0 = 0x1c009f7de;
-       RtlInitEnumerationHashTable(puVar9,&stack0xffffffffffffffb8);
-       puVar10 = (undefined8 *)&DAT_0;
+       RtlInitEnumerationHashTable(puVar10,&stack0xffffffffffffffb8);
+       p_Var11 = (_SLIST_ENTRY *)&DAT_0;
  LAB_1:
-       iVar11 = (int)uVar12;
+       iVar12 = (int)uVar13;
 -      uStackY_b0 = 0x1c009f35b;
 +      uStackY_b0 = 0x1c009f7fb;
-       lVar6 = RtlEnumerateEntryHashTable(puVar9,&stack0xffffffffffffffb8);
+       lVar6 = RtlEnumerateEntryHashTable(puVar10,&stack0xffffffffffffffb8);
        if (lVar6 != 0) {
-         lVar13 = lVar6 + -0x200;
+         lVar14 = lVar6 + -0x200;
          if ((param_1 - 0x28 & 0xfffd) != 0) goto LAB_2;
-         uVar15 = *(uint *)(lVar6 + -0x1cc) & 0x20;
+         uVar16 = *(uint *)(lVar6 + -0x1cc) & 0x20;
          goto LAB_3;
        }
 -      uStackY_b0 = 0x1c009f3eb;
 +      uStackY_b0 = 0x1c009f88b;
-       RtlEndEnumerationHashTable(puVar9,&stack0xffffffffffffffb8);
+       RtlEndEnumerationHashTable(puVar10,&stack0xffffffffffffffb8);
 -      uStackY_b0 = 0x1c009f3fb;
 +      uStackY_b0 = 0x1c009f89b;
-       KeReleaseInStackQueuedSpinLock(&stack0xffffffffffffff98);
-       uVar15 = (int)uVar16 + 1;
-       uVar16 = (ulonglong)uVar15;
-     } while (uVar15 < *endpointHandleTable);
-     puVar10 = (undefined8 *)&stack0xffffffffffffff88;
-     if ((char)uVar12 != '\0') {
+       KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)&stack0xffffffffffffff98);
+       uVar16 = (int)uVar17 + 1;
+       uVar17 = (ulonglong)uVar16;
+     } while (uVar16 < *endpointHandleTable);
+     p_Var11 = (_SLIST_ENTRY *)&stack0xffffffffffffff88;
+     if ((char)uVar13 != '\0') {
        uVar4 = 0xc000022d;
        goto LAB_4;
      }
    }
    while( true ) {
-     iVar11 = (int)uVar12;
+     iVar12 = (int)uVar13;
      sVar8 = -3;
-     if (puVar10 == (undefined8 *)&stack0xffffffffffffff88) break;
-     puVar2 = (undefined8 *)*puVar10;
-     if (((undefined *)puVar10[1] != &stack0xffffffffffffff88) ||
-        ((undefined8 *)puVar2[1] != puVar10)) goto LAB_5;
-     puVar2[1] = &stack0xffffffffffffff88;
+     if (p_Var11 == (_SLIST_ENTRY *)&stack0xffffffffffffff88) break;
+     p_Var2 = p_Var11->Next;
+     if ((p_Var11[1].Next != (_SLIST_ENTRY *)&stack0xffffffffffffff88) || (p_Var2[1].Next != p_Var11)
+        ) goto LAB_5;
+     p_Var2[1].Next = (_SLIST_ENTRY *)&stack0xffffffffffffff88;
      if ((param_1 - 0x28 & 0xfffd) == 0) {
-       if ((*(uint *)((longlong)puVar10 + -0x204) & 0x10) == 0) {
-         lVar6 = 0;
+       if ((*(uint *)((longlong)&p_Var11[-0x41].Next + 4) & 0x10) == 0) {
+         p_Var9 = (_SLIST_ENTRY *)0x0;
        }
        else {
-         lVar6 = puVar10[-0xc];
+         p_Var9 = p_Var11[-0xc].Next;
        }
        in_stack_ffffffffffffff78 =
             (undefined4 *)CONCAT71((int7)((ulonglong)in_stack_ffffffffffffff78 >> 8),1);
 -      uStackY_b0 = 0x1c009f48b;
 +      uStackY_b0 = 0x1c009f92b;
        uVar4 = WfpAlepReauthorizeOrReclassifyListen
-                         ((longlong)(puVar10 + -0x47),lVar6,*(ushort *)((longlong)puVar10 + -0x1fa),
+                         (p_Var11 + -0x47,p_Var9,*(ushort *)((longlong)&p_Var11[-0x40].Next + 6),
                           (undefined4 *)0x0,'\x01');
  LAB_6:
        if ((int)uVar4 < 0) break;
      }
      else if ((param_1 - 0x24 & 0xfffd) == 0) {
-       if ((*(uint *)((longlong)puVar10 + -0x204) & 0x10) == 0) {
-         lVar6 = 0;
+       if ((*(uint *)((longlong)&p_Var11[-0x41].Next + 4) & 0x10) == 0) {
+         p_Var9 = (_SLIST_ENTRY *)0x0;
        }
        else {
-         lVar6 = puVar10[-0xc];
+         p_Var9 = p_Var11[-0xc].Next;
        }
        in_stack_ffffffffffffff78 = (undefined4 *)0x0;
 -      uStackY_b0 = 0x1c009f4f1;
 +      uStackY_b0 = 0x1c009f991;
        uVar4 = WfpAlepReauthorizeOrReclassifyPort
-                         ((longlong)(puVar10 + -0x47),*(short *)((longlong)puVar10 + -0x1fc),lVar6,
-                          *(ushort *)((longlong)puVar10 + -0x1fa),(undefined4 *)0x0,'\x01');
+                         (p_Var11 + -0x47,*(short *)((longlong)&p_Var11[-0x40].Next + 4),p_Var9,
+                          *(ushort *)((longlong)&p_Var11[-0x40].Next + 6),(undefined4 *)0x0,'\x01');
        goto LAB_6;
      }
-     if ((gAleDebugEnabled != '\0') && (puVar10[-0x34] != -0x4524520545245206)) {
+     if ((gAleDebugEnabled != '\0') && (p_Var11[-0x34].Next != (_SLIST_ENTRY *)0xbadbadfabadbadfa)) {
        LOCK();
-       piVar1 = (int *)(puVar10[-0x34] + 0x3c);
+       piVar1 = (int *)((longlong)&p_Var11[-0x34].Next[7].Next + 4);
        *piVar1 = *piVar1 + -1;
        UNLOCK();
      }
 -    uStackY_b0 = 0x1c009f4aa;
 +    uStackY_b0 = 0x1c009f94a;
-     WfpAleDecrementWaitRef((uint *)(puVar10 + -0x37));
-     puVar10 = puVar2;
+     WfpAleDecrementWaitRef((uint *)(p_Var11 + -0x37));
+     p_Var11 = p_Var2;
    }
  LAB_4:
    return (ulonglong)uVar4;
  LAB_2:
    if (((param_1 - 0x24 & 0xfffd) == 0) && (*(int *)(lVar6 + -0x1d8) == 0x11)) {
-     uVar15 = *(uint *)(lVar6 + -0x1cc) & 0x40;
+     uVar16 = *(uint *)(lVar6 + -0x1cc) & 0x40;
  LAB_3:
-     if (uVar15 == 0) {
+     if (uVar16 == 0) {
        if ((*(uint *)(lVar6 + -0x1d0) & 0x8000) != 0) {
-         uVar12 = CONCAT71((int7)(uVar12 >> 8),1);
+         uVar13 = CONCAT71((int7)(uVar13 >> 8),1);
        }
      }
      else {
        sVar8 = 0xf;
 -      uStackY_b0 = 0x1c009f390;
 +      uStackY_b0 = 0x1c009f830;
-       uVar7 = WfpAleReferenceEndpoint(lVar13,0xf);
+       uVar7 = WfpAleReferenceEndpoint(lVar14,0xf);
        if ((char)uVar7 != '\0') {
-         pplVar14 = (longlong **)(lVar13 + 0x238);
-         if (*pplVar18 != (longlong *)&stack0xffffffffffffff88) goto LAB_5;
-         *pplVar14 = (longlong *)&stack0xffffffffffffff88;
-         *(longlong ***)(lVar13 + 0x240) = pplVar18;
-         *pplVar18 = (longlong *)pplVar14;
-         pplVar18 = pplVar14;
+         pplVar15 = (longlong **)(lVar14 + 0x238);
+         if (*pplVar19 != (longlong *)&stack0xffffffffffffff88) goto LAB_5;
+         *pplVar15 = (longlong *)&stack0xffffffffffffff88;
+         *(longlong ***)(lVar14 + 0x240) = pplVar19;
+         *pplVar19 = (longlong *)pplVar15;
+         pplVar19 = pplVar15;
        }
      }
    }
@@ -875,7 +878,7 @@ pie showData
  LAB_5:
    pcVar3 = (code *)swi(0x29);
    (*pcVar3)(3);
-   if (*(short *)(uVar17 + 0x3e) == sVar8) {
+   if (*(short *)((longlong)&p_Var18[7].Next + 6) == sVar8) {
 -    uStackY_a8 = 0x1c011764c;
 +    uStackY_a8 = 0x1c01175b2;
      iVar5 = KfdIsLayerEmpty(unaff_R13W);
@@ -883,21 +886,21 @@ pie showData
    }
    else {
  LAB_7:
-     uVar12 = 0;
-     if ((*(uint *)(uVar17 + 0x30) & 0x4000) == 0) goto LAB_8;
+     uVar13 = 0;
+     if ((*(uint *)&p_Var18[6].Next & 0x4000) == 0) goto LAB_8;
    }
 -  uStackY_a8 = 0x1c009f647;
 +  uStackY_a8 = 0x1c009fae7;
    WfpAlepAuthorizeOrClassifyListen
-             (uVar17,unaff_R12W,puStackY_90,(longlong)puVar10,(undefined4 *)&uStackY_a8,
-              uStackY_b0._2_2_,(char)uVar4,uStackY_98,iVar11,(int)uVar16,in_stack_ffffffffffffff78,
+             (p_Var18,unaff_R12W,puStackY_90,p_Var11,(undefined4 *)&uStackY_a8,uStackY_b0._2_2_,
+              (char)uVar4,uStackY_98,iVar12,(int)uVar17,in_stack_ffffffffffffff78,
               uStackY_b0._1_1_ == '\0',uStackY_b0._1_1_,(char *)&uStackY_b0,
               (undefined (*) [16])&stack0xffffffffffffff80);
-   uVar12 = uVar16;
+   uVar13 = uVar17;
  LAB_8:
 -  uStackY_a8 = 0x1c009f65f;
 +  uStackY_a8 = 0x1c009faff;
-   __security_check_cookie(uVar12 ^ (ulonglong)auStackY_a0);
+   __security_check_cookie(uVar13 ^ (ulonglong)auStackY_a0);
    return extraout_RAX;
  }
  
@@ -960,7 +963,7 @@ pie showData
 ```diff
 --- WfpAleStreamLayerChanged
 +++ WfpAleStreamLayerChanged
-@@ -1,259 +1,259 @@
+@@ -1,266 +1,266 @@
  
  void WfpAleStreamLayerChanged(short param_1)
  
@@ -968,100 +971,106 @@ pie showData
    longlong ****pppplVar1;
    longlong ****pppplVar2;
    code *pcVar3;
-   undefined uVar4;
-   undefined7 uVar5;
-   undefined uVar6;
-   undefined7 uVar7;
-   char cVar8;
-   undefined uVar9;
+   PVOID pvVar4;
+   undefined uVar5;
+   undefined7 uVar6;
+   undefined uVar7;
+   undefined7 uVar8;
+   char cVar9;
+   KIRQL NewIrql;
    byte bVar10;
    int iVar11;
    longlong lVar12;
    undefined8 uVar13;
-   ulonglong uVar14;
-   uint **ppuVar15;
-   ulonglong uVar16;
-   byte bVar17;
-   uint *unaff_RBX;
-   uint uVar18;
-   byte bVar19;
-   longlong ****pppplVar20;
-   ulonglong uVar21;
-   uint **ppuVar22;
-   uint **ppuVar23;
+   PKSPIN_LOCK SpinLock;
+   PSLIST_ENTRY p_Var14;
+   PKSPIN_LOCK pUVar15;
+   byte bVar16;
+   PKSPIN_LOCK unaff_RBX;
+   uint uVar17;
+   byte bVar18;
+   _SLIST_ENTRY *p_Var19;
+   PKSPIN_LOCK pUVar20;
+   PSLIST_ENTRY p_Var21;
+   undefined uVar22;
    undefined8 unaff_R15;
    bool bVar24;
    char *local_res10;
-   longlong local_res18;
-   uint **local_res20;
+   PVOID local_res18;
+   PSLIST_ENTRY local_res20;
    undefined auStackY_160 [24];
    undefined4 in_stack_fffffffffffffec4;
    undefined8 in_stack_fffffffffffffee0;
    longlong ****local_b8;
    longlong ****local_b0;
    undefined8 local_a8;
-   undefined local_a0 [16];
-   undefined8 local_90;
+   undefined local_a0 [24];
    undefined local_88 [8];
    undefined8 uStack_80;
    undefined local_78 [16];
    undefined local_68 [15];
    undefined uStack_59;
-   undefined7 local_58;
-   undefined8 uStack_51;
+   undefined local_58 [15];
    undefined uStack_49;
-   undefined7 local_48;
+   undefined local_48 [7];
    undefined uStack_41;
    undefined7 uStack_40;
    undefined uStack_39;
    undefined7 uStack_38;
    undefined uStack_31;
+   PSLIST_ENTRY p_Var23;
    
    uStack_38 = (undefined7)unaff_R15;
    uStack_31 = (undefined)((ulonglong)unaff_R15 >> 0x38);
-   local_48 = 0;
+   local_48[0] = '\0';
+   local_48._1_6_ = 0;
    uStack_41 = 0;
-   local_90 = 0;
-   uVar21 = 0;
-   ppuVar23 = (uint **)(ulonglong)(ushort)param_1;
-   uVar9 = (undefined)param_1;
+   local_a0[0x10] = '\0';
+   local_a0._17_7_ = 0;
+   pUVar20 = (PKSPIN_LOCK)0x0;
+   p_Var23 = (PSLIST_ENTRY)(ulonglong)(ushort)param_1;
+   uVar22 = (undefined)param_1;
    local_b8 = (longlong ****)&local_b8;
-   ppuVar22 = (uint **)0x1;
+   p_Var21 = (PSLIST_ENTRY)0x1;
    local_b0 = (longlong ****)&local_b8;
    _local_88 = ZEXT816(0);
    local_78 = ZEXT816(0);
    local_68 = SUB1615(ZEXT816(0),0);
    uStack_59 = 0;
-   local_58 = SUB167(ZEXT816(0),0);
-   local_58 = 0;
-   uStack_51 = SUB168(ZEXT816(0),7);
+   local_58._0_7_ = SUB167(ZEXT816(0),0);
+   local_58[0] = '\0';
+   local_58._1_6_ = 0;
+   local_58._7_8_ = SUB168(ZEXT816(0),7);
    uStack_49 = 0;
-   local_a0 = ZEXT816(0);
-   uVar14 = uVar21;
-   ppuVar15 = ppuVar22;
+   local_a0._0_16_ = ZEXT816(0);
+   SpinLock = pUVar20;
+   p_Var14 = p_Var21;
    if (*endpointHandleTable != 0) {
      do {
-       RtlAcquireScalableWriteLock((longlong)(endpointHandleTable + uVar14 * 0x60 + 0x10));
-       unaff_RBX = endpointHandleTable + uVar14 * 0x60 + 0x60;
+       RtlAcquireScalableWriteLock
+                 ((PKSPIN_LOCK)(endpointHandleTable + (longlong)SpinLock * 0x60 + 0x10),
+                  (PKLOCK_QUEUE_HANDLE)local_58);
+       unaff_RBX = (PKSPIN_LOCK)(endpointHandleTable + (longlong)SpinLock * 0x60 + 0x60);
        RtlInitEnumerationHashTable(unaff_RBX,local_88 + 8);
        local_88 = (undefined  [8])unaff_RBX;
        while( true ) {
          lVar12 = RtlEnumerateEntryHashTable(local_88,local_88 + 8);
          if (lVar12 == 0) break;
-         unaff_RBX = (uint *)(lVar12 + -0x200);
+         unaff_RBX = (PKSPIN_LOCK)(lVar12 + -0x200);
          local_res10 = (char *)0x0;
-         uVar16 = uVar21;
+         pUVar15 = pUVar20;
          if ((gAleDebugEnabled != '\0') &&
-            (uVar16 = WfpPoolAllocNonPaged(0x19,0x4c656c41,(longlong *)&local_res10), uVar16 == 0)) {
+            (pUVar15 = (PKSPIN_LOCK)WfpPoolAllocNonPaged(0x19,0x4c656c41,(longlong *)&local_res10),
+            pUVar15 == (PKSPIN_LOCK)0x0)) {
 -          WfpStringCchCopyA(0x1c01da188,0x19,local_res10);
 +          WfpStringCchCopyA(0x1c01da168,0x19,local_res10);
          }
-         KeAcquireInStackQueuedSpinLock(unaff_RBX,local_a0);
+         KeAcquireInStackQueuedSpinLock(unaff_RBX,(PKLOCK_QUEUE_HANDLE)local_a0);
          do {
          } while (*(int *)(lVar12 + -0x1f8) != 0);
          bVar24 = gAleDebugEnabled == '\x01';
          *(void **)(lVar12 + -0x1f0) = SystemReserved1[0xf];
-         if ((bVar24) && (uVar16 == 0)) {
+         if ((bVar24) && (pUVar15 == (PKSPIN_LOCK)0x0)) {
            *(char **)(lVar12 + -0x1e8) = local_res10;
          }
          if ((((*(int *)(lVar12 + -0x1d8) == 6) &&
@@ -1078,26 +1087,26 @@ pie showData
          }
          bVar24 = gAleDebugEnabled == '\x01';
          *(undefined8 *)(lVar12 + -0x1f0) = 0;
-         local_res18 = 0;
+         local_res18 = (PVOID)0x0;
          if (bVar24) {
-           local_res18 = *(longlong *)(lVar12 + -0x1e8);
+           local_res18 = *(PVOID *)(lVar12 + -0x1e8);
            *(undefined8 *)(lVar12 + -0x1e8) = 0;
          }
-         lVar12 = local_res18;
-         KeReleaseInStackQueuedSpinLock(local_a0);
-         if ((gAleDebugEnabled == '\x01') && (lVar12 != 0)) {
+         pvVar4 = local_res18;
+         KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)local_a0);
+         if ((gAleDebugEnabled == '\x01') && (pvVar4 != (PVOID)0x0)) {
            WfpPoolFree(&local_res18);
          }
        }
        RtlEndEnumerationHashTable(local_88,local_88 + 8);
-       KeReleaseInStackQueuedSpinLock(&local_58);
-       uVar18 = (int)uVar14 + 1;
-       uVar14 = (ulonglong)uVar18;
-     } while (uVar18 < *endpointHandleTable);
+       KeReleaseInStackQueuedSpinLock((PKLOCK_QUEUE_HANDLE)local_58);
+       uVar17 = (int)SpinLock + 1;
+       SpinLock = (PKSPIN_LOCK)(ulonglong)uVar17;
+     } while (uVar17 < *endpointHandleTable);
    }
    while( true ) {
      pppplVar1 = local_b8;
-     uVar9 = SUB81(ppuVar23,0);
+     uVar22 = SUB81(p_Var23,0);
      if ((longlong *****)local_b8 == &local_b8) {
        return;
      }
@@ -1105,33 +1114,33 @@ pie showData
      if (((longlong *****)local_b8[1] != &local_b8) || ((longlong ****)pppplVar2[1] != local_b8))
      break;
      pppplVar2[1] = (longlong ***)&local_b8;
-     pppplVar20 = local_b8 + -0x45;
+     p_Var19 = (_SLIST_ENTRY *)(local_b8 + -0x45);
      local_b8 = pppplVar2;
-     uVar14 = WfpAleOobAcquireStreamEndpoint((longlong)pppplVar20);
-     if (uVar14 != 0) {
+     SpinLock = (PKSPIN_LOCK)WfpAleOobAcquireStreamEndpoint((PKSPIN_LOCK)p_Var19);
+     if (SpinLock != (PKSPIN_LOCK)0x0) {
        local_a8 = 0;
-       local_res20 = (uint **)0x0;
-       ppuVar15 = (uint **)IppInspectAcquireNexthopInterface
-                                     (*(longlong **)(uVar14 + 0x18),(int **)&local_res20);
-       KfdAleAcquireFlowHandleForFlow(pppplVar20,0);
-       ppuVar23 = local_res20;
+       local_res20 = (PSLIST_ENTRY)0x0;
+       p_Var14 = (PSLIST_ENTRY)
+                 IppInspectAcquireNexthopInterface((longlong *)SpinLock[3],(int **)&local_res20);
+       KfdAleAcquireFlowHandleForFlow(p_Var19,0);
+       p_Var23 = local_res20;
        iVar11 = WfpAleReauthorizeConnection
-                          ((undefined *)pppplVar20,*(short *)((longlong)pppplVar1 + -0x1ec),
-                           (undefined *)0x0,'\0',(longlong *)pppplVar1[-10],
-                           *(ushort *)((longlong)pppplVar1 + -0x1ea),6,(uint *)pppplVar1[-0x41],
-                           *(ushort *)(pppplVar1 + -0x3d),in_stack_fffffffffffffee0,(uint *)0x0,0,0,
-                           ppuVar15,0,0x40,0,local_res20,0,(undefined8 *)0x0,0,0);
-       if (ppuVar15 != (uint **)0x0) {
-         uVar18 = *(uint *)(ppuVar15 + 5);
-         unaff_RBX = (uint *)(ulonglong)uVar18;
-         IppDereferenceInterface((longlong)ppuVar15);
-         ppuVar22 = (uint **)(ulonglong)(uVar18 != 0);
+                          (p_Var19,*(short *)((longlong)pppplVar1 + -0x1ec),(_SLIST_ENTRY *)0x0,'\0',
+                           (longlong *)pppplVar1[-10],*(ushort *)((longlong)pppplVar1 + -0x1ea),6,
+                           (uint *)pppplVar1[-0x41],*(ushort *)(pppplVar1 + -0x3d),
+                           in_stack_fffffffffffffee0,(uint *)0x0,0,0,p_Var14,0,0x40,0,local_res20,0,
+                           (_SLIST_ENTRY **)0x0,(_SLIST_ENTRY *)0x0,0);
+       if (p_Var14 != (PSLIST_ENTRY)0x0) {
+         uVar17 = *(uint *)&p_Var14[5].Next;
+         unaff_RBX = (PKSPIN_LOCK)(ulonglong)uVar17;
+         IppDereferenceInterface(p_Var14);
+         p_Var21 = (PSLIST_ENTRY)(ulonglong)(uVar17 != 0);
        }
-       if (ppuVar23 != (uint **)0x0) {
-         IpNlpDereferenceNextHop((int *)ppuVar23);
+       if (p_Var23 != (PSLIST_ENTRY)0x0) {
+         IpNlpDereferenceNextHop((int *)p_Var23);
        }
        if (iVar11 < 0) {
-         if (((*(uint *)(pppplVar1 + -0x3f) >> 0xb & 1) == 0) && ((int)ppuVar22 == 1)) {
+         if (((*(uint *)(pppplVar1 + -0x3f) >> 0xb & 1) == 0) && ((int)p_Var21 == 1)) {
            LOCK();
            *(uint *)(pppplVar1 + -0x3f) = *(uint *)(pppplVar1 + -0x3f) | 0x800;
            UNLOCK();
@@ -1142,16 +1151,16 @@ pie showData
          }
        }
        else {
-         cVar8 = WfpStreamIsFilterPresent
+         cVar9 = WfpStreamIsFilterPresent
                            (*(undefined2 *)((longlong)pppplVar1 + -0x1ec),
                             *(undefined2 *)((longlong)pppplVar1 + -0x1ea),
                             *(undefined2 *)(pppplVar1 + -0x3d));
-         if (cVar8 != '\0') {
-           uVar9 = KeAcquireSpinLockRaiseToDpc(uVar14);
-           *(uint *)(uVar14 + 0x2c8) = *(uint *)(uVar14 + 0x2c8) | 0x400;
-           KeReleaseSpinLock(uVar14,uVar9);
--          AleAcquireEndpointLockEx((longlong)pppplVar20,local_a0,0x1c01da188);
-+          AleAcquireEndpointLockEx((longlong)pppplVar20,local_a0,0x1c01da168);
+         if (cVar9 != '\0') {
+           NewIrql = KeAcquireSpinLockRaiseToDpc(SpinLock);
+           *(uint *)(SpinLock + 0x59) = *(uint *)(SpinLock + 0x59) | 0x400;
+           KeReleaseSpinLock(SpinLock,NewIrql);
+-          AleAcquireEndpointLockEx((PKSPIN_LOCK)p_Var19,(PKLOCK_QUEUE_HANDLE)local_a0,0x1c01da188);
++          AleAcquireEndpointLockEx((PKSPIN_LOCK)p_Var19,(PKLOCK_QUEUE_HANDLE)local_a0,0x1c01da168);
            LOCK();
            *(uint *)((longlong)pppplVar1 + -500) = *(uint *)((longlong)pppplVar1 + -500) | 0x100;
            UNLOCK();
@@ -1163,60 +1172,61 @@ pie showData
            LOCK();
            *(uint *)((longlong)pppplVar1 + -500) = *(uint *)((longlong)pppplVar1 + -500) | 0x400;
            UNLOCK();
-           AleReleaseEndpointLock((longlong)pppplVar20,local_a0);
+           AleReleaseEndpointLock((longlong)p_Var19,(PKLOCK_QUEUE_HANDLE)local_a0);
          }
        }
-       KfdAleReleaseFlowHandleForFlow(pppplVar20);
-       TcpDereferenceTcb(uVar14);
+       KfdAleReleaseFlowHandleForFlow(p_Var19);
+       TcpDereferenceTcb((longlong)SpinLock);
      }
-     WfpAleDereferenceEndpoint((longlong)pppplVar20,0xf);
+     WfpAleDereferenceEndpoint((longlong)p_Var19,0xf);
    }
  LAB_0:
    pcVar3 = (code *)swi(0x29);
    (*pcVar3)(3);
    MicrosoftTelemetryAssertTriggeredMsgKM();
-   uVar7 = local_58;
-   uVar6 = uStack_59;
-   bVar19 = 0x80;
+   uVar8 = local_58._0_7_;
+   uVar7 = uStack_59;
+   bVar18 = 0x80;
    if (DAT_1 != 0) {
      uStack_59 = SUB81(unaff_RBX,0);
-     uVar4 = uStack_59;
-     local_58 = (undefined7)((ulonglong)unaff_RBX >> 8);
-     uVar5 = local_58;
+     uVar5 = uStack_59;
+     local_58._0_7_ = (undefined7)((ulonglong)unaff_RBX >> 8);
+     uVar6 = local_58._0_7_;
      if (((TcpipTraceFiltersExist == '\0') || ((*(byte *)((longlong)unaff_RBX + 0x8b) & 4) != 0)) &&
         ((DAT_2 & 8) != 0)) {
-       uStack_51 = 0;
+       local_58._7_8_ = (_KSPIN_LOCK_QUEUE *)0x0;
        McTemplateK0phqp_EtwWriteTransfer
                  (&MICROSOFT_TCPIP_PROVIDER_Context,&TCP_ACQUIRE_WEAKREF_PORT,&uStack_59,unaff_RBX,
-                  (char)((ushort)uRam0000000000000000 >> 8),uVar9,(char)ppuVar15);
-       uVar6 = uStack_59;
-       uVar7 = local_58;
+                  (char)((ushort)uRam0000000000000000 >> 8),uVar22,(char)p_Var14);
+       uVar7 = uStack_59;
+       uVar8 = local_58._0_7_;
      }
-     local_58 = uVar7;
-     uStack_59 = uVar6;
+     local_58._0_7_ = uVar8;
+     uStack_59 = uVar7;
      if ((DAT_1 != 0) &&
         (((TcpipTraceFiltersExist == '\0' || ((*(byte *)((longlong)unaff_RBX + 0x8b) & 4) != 0)) &&
          ((DAT_2 & 0x80) != 0)))) {
        uStack_41 = 0;
        uStack_40 = 0;
-       uStack_49 = uVar4;
-       local_48 = uVar5;
+       uStack_49 = uVar5;
+       local_48 = (undefined  [7])uVar6;
        McTemplateK0pqz_EtwWriteTransfer
                  (&MICROSOFT_TCPIP_PROVIDER_Context,L"Initializing Template SYNTCB",&uStack_49,
                   unaff_RBX,
                   CONCAT44(in_stack_fffffffffffffec4,
-                           CONCAT22((short)(char)(unaff_RBX[0x2c] >> 0x10),(short)unaff_RBX[0x2c])),
+                           CONCAT22((short)(char)((uint)*(undefined4 *)(unaff_RBX + 0x16) >> 0x10),
+                                    (short)*(undefined4 *)(unaff_RBX + 0x16))),
                   L"Initializing Template SYNTCB");
      }
    }
    bVar10 = *(byte *)((longlong)unaff_RBX + 0x8a) & 0x7f;
-   bVar17 = *(char *)((longlong)ppuVar22 + 0xa2) << 7;
-   *(byte *)((longlong)unaff_RBX + 0x8a) = bVar17 | bVar10;
-   if ((bVar17 == 0) || ((*(byte *)(uVar14 + 0xd) & 0xc0) != 0xc0)) {
-     bVar19 = 0;
+   bVar16 = *(char *)((longlong)&p_Var21[0x14].Next + 2) << 7;
+   *(byte *)((longlong)unaff_RBX + 0x8a) = bVar16 | bVar10;
+   if ((bVar16 == 0) || ((*(byte *)((longlong)SpinLock + 0xd) & 0xc0) != 0xc0)) {
+     bVar18 = 0;
    }
-   *(byte *)((longlong)unaff_RBX + 0x8a) = bVar10 | bVar19;
-   TcpValidateSynOptions(uVar14,(char **)(local_88 + 7));
+   *(byte *)((longlong)unaff_RBX + 0x8a) = bVar10 | bVar18;
+   TcpValidateSynOptions((longlong)SpinLock,(char **)(local_88 + 7));
    TcpApplySynOptionsToSynTcb((longlong)unaff_RBX,(longlong *)(local_88 + 7));
    __security_check_cookie(CONCAT71(uStack_38,uStack_39) ^ (ulonglong)auStackY_160);
    return;
@@ -1235,7 +1245,7 @@ pie showData
 |Key|tcpip.sys.x64.10.0.22000.3079 - tcpip.sys.x64.10.0.22000.3147|
 | :---: | :---: |
 |diff_type|code,refcount,length,sig|
-|ratio|0.33|
+|ratio|0.32|
 |i_ratio|0.04|
 |m_ratio|0.06|
 |b_ratio|0.07|
@@ -1255,7 +1265,7 @@ pie showData
 |calling|IppEvaluateSortInformation<br>IppGetAllBestRouteParameters<br>IppJoinPath<br>IppProcessPhysicalInterfaceRequest<br>IppRouteToDestination<br>Ipv4SetAllPathParameters<br>Ipv6SetAllPathParameters|IppEvaluateSortInformation<br>IppGetAllBestRouteParameters<br>IppJoinPath<br>IppProcessPhysicalInterfaceRequest<br>IppRouteToDestination<br>Ipv4SetAllPathParameters<br>Ipv6SetAllPathParameters|
 |paramcount|6|6|
 |address|1c00504c0|1c00504c0|
-|`sig`|undefined __fastcall IppFindOrCreatePath(longlong param_1, int * param_2, uint param_3, uint * * param_4, longlong * * param_5, longlong * * param_6)|undefined __fastcall IppFindOrCreatePath(longlong param_1, int * param_2, undefined4 param_3, uint * * param_4, longlong * param_5, longlong * * param_6)|
+|`sig`|undefined __fastcall IppFindOrCreatePath(longlong param_1, int * param_2, uint param_3, _SLIST_ENTRY * param_4, PRTL_AVL_TABLE param_5, PRTL_AVL_TABLE * param_6)|undefined __fastcall IppFindOrCreatePath(longlong param_1, int * param_2, undefined4 param_3, uint * * param_4, _SLIST_ENTRY * param_5, _SLIST_ENTRY * * param_6)|
 |sym_type|Function|Function|
 |sym_source|IMPORTED|IMPORTED|
 |external|False|False|
@@ -1266,1205 +1276,1253 @@ pie showData
 ```diff
 --- IppFindOrCreatePath
 +++ IppFindOrCreatePath
-@@ -1,728 +1,715 @@
+@@ -1,737 +1,755 @@
  
  /* WARNING: Function: _guard_dispatch_icall replaced with injection: guard_dispatch_icall */
  
--void IppFindOrCreatePath(longlong param_1,int *param_2,uint param_3,uint **param_4,
--                        longlong **param_5,longlong **param_6)
-+void IppFindOrCreatePath(longlong param_1,int *param_2,uint param_3,uint **param_4,longlong *param_5
-+                        ,longlong **param_6)
+-void IppFindOrCreatePath(longlong param_1,int *param_2,uint param_3,_SLIST_ENTRY *param_4,
+-                        PRTL_AVL_TABLE param_5,PRTL_AVL_TABLE *param_6)
++void IppFindOrCreatePath(longlong param_1,int *param_2,uint param_3,uint **param_4,
++                        _SLIST_ENTRY *param_5,_SLIST_ENTRY **param_6)
  
  {
-   uint *puVar1;
-   uint *puVar2;
-   byte bVar3;
--  uint **ppuVar4;
--  longlong *plVar5;
--  bool bVar6;
--  longlong lVar7;
--  undefined uVar8;
--  char cVar9;
--  byte bVar10;
--  uint uVar11;
--  int iVar12;
--  undefined4 uVar13;
--  longlong **pplVar14;
--  longlong **extraout_RAX;
--  int *piVar15;
+-  _SLIST_ENTRY *p_Var1;
+-  longlong *plVar2;
+-  bool bVar3;
+-  RTL_BALANCED_LINKS *pRVar4;
+-  longlong lVar5;
+-  KIRQL KVar6;
+-  BOOLEAN BVar7;
+-  byte bVar8;
+-  uint uVar9;
+-  int iVar10;
+-  undefined4 uVar11;
+-  PRTL_AVL_TABLE p_Var12;
+-  PRTL_AVL_TABLE p_Var13;
+-  ulonglong *puVar14;
+-  PRTL_AVL_TABLE extraout_RAX;
+-  PRTL_AVL_TABLE p_Var15;
 -  int *piVar16;
--  ulonglong *puVar17;
--  uint uVar18;
--  int **ppiVar19;
--  int **ppiVar20;
--  longlong **pplVar21;
--  longlong **pplVar22;
--  longlong **pplVar23;
--  longlong **pplVar24;
+-  PKSPIN_LOCK pUVar17;
+-  _SLIST_ENTRY *p_Var18;
+-  _SLIST_ENTRY *p_Var19;
+-  int *piVar20;
+-  int *piVar21;
+-  uint uVar22;
++  CHAR *pCVar1;
++  _SLIST_ENTRY *p_Var2;
++  longlong lVar3;
 +  undefined4 uVar4;
 +  uint uVar5;
-+  undefined8 uVar6;
-+  undefined uVar7;
-+  char cVar8;
-+  byte bVar9;
-+  uint uVar10;
-+  uint **ppuVar11;
-+  uint **ppuVar12;
-+  longlong lVar13;
-+  uint **ppuVar14;
-+  uint **extraout_RAX;
-+  ulonglong *puVar15;
-+  uint uVar16;
-+  int iVar17;
-+  int *piVar18;
-+  uint *puVar19;
-+  ulonglong uVar20;
-+  longlong *plVar21;
-+  longlong *plVar22;
-+  undefined4 *puVar23;
-+  uint **ppuVar24;
-   uint **ppuVar25;
++  int iVar6;
++  undefined8 uVar7;
++  PRTL_AVL_TABLE Table;
++  _RTL_BALANCED_LINKS **pp_Var8;
++  KIRQL KVar9;
++  BOOLEAN BVar10;
++  byte bVar11;
++  uint uVar12;
++  _RTL_BALANCED_LINKS *p_Var13;
++  _RTL_BALANCED_LINKS *p_Var14;
++  PVOID pvVar15;
++  UCHAR *pUVar16;
++  _RTL_BALANCED_LINKS *p_Var17;
++  _RTL_BALANCED_LINKS *extraout_RAX;
++  uint uVar20;
++  int iVar21;
++  _RTL_BALANCED_LINKS *p_Var18;
++  ulonglong *puVar19;
++  int *piVar22;
+   PRTL_AVL_TABLE p_Var23;
+-  PRTL_AVL_TABLE p_Var24;
+-  ulonglong uVar25;
 -  ulonglong uVar26;
--  ulonglong uVar27;
--  int *piVar28;
--  longlong lVar29;
--  longlong **pplVar30;
--  uint *puVar31;
+-  _SLIST_ENTRY *p_Var27;
+-  PKSPIN_LOCK SpinLock;
+-  PRTL_AVL_TABLE p_Var28;
+-  _SLIST_ENTRY *p_Var29;
 -  undefined auStackY_268 [32];
 -  ulonglong in_stack_fffffffffffffdc8;
--  undefined *puVar32;
--  char local_216;
+-  undefined *Buffer;
+-  KIRQL local_216;
 -  uint local_214;
--  int *local_210;
+-  _SLIST_ENTRY *local_210;
 -  undefined8 local_208;
--  int **local_200;
+-  _SLIST_ENTRY *local_200;
 -  int *local_1f8;
 -  undefined8 local_1f0;
 -  uint local_1e8;
-+  undefined4 *puVar26;
-+  uint **ppuVar27;
-+  longlong *plVar28;
+-  _SLIST_ENTRY *local_1e0;
+-  PRTL_AVL_TABLE local_1d8;
+-  _SLIST_ENTRY *local_1d0;
+-  PRTL_AVL_TABLE local_1c8;
+-  int local_1c0;
+-  _SLIST_ENTRY *local_1b8;
++  ulonglong uVar24;
++  _RTL_BALANCED_LINKS **pp_Var25;
++  longlong *plVar26;
++  longlong *plVar27;
++  _RTL_BALANCED_LINKS *p_Var28;
++  longlong *plVar29;
++  _RTL_BALANCED_LINKS *p_Var30;
 +  undefined auStackY_248 [32];
 +  ulonglong in_stack_fffffffffffffde8;
-+  undefined *puVar29;
++  undefined *puVar31;
 +  char local_1f8;
-+  char local_1f7;
++  KIRQL local_1f7;
 +  uint local_1f4;
-+  longlong *local_1f0;
++  PRTL_AVL_TABLE local_1f0;
 +  longlong local_1e8;
-   uint **local_1e0;
--  longlong **local_1d8;
--  uint **local_1d0;
--  longlong **local_1c8;
--  int local_1c0;
--  longlong local_1b8;
++  _RTL_BALANCED_LINKS *local_1e0;
 +  uint local_1d8;
 +  int local_1d4;
 +  longlong *local_1d0;
-+  uint **local_1c8;
-+  uint **local_1c0;
-+  uint **local_1b8;
++  _RTL_BALANCED_LINKS *local_1c8;
++  _RTL_BALANCED_LINKS *local_1c0;
++  _RTL_BALANCED_LINKS *local_1b8;
    undefined4 local_1b0;
--  uint **local_1a8;
--  uint *local_1a0;
--  longlong **local_198;
+-  _SLIST_ENTRY *local_1a8;
++  _RTL_BALANCED_LINKS **local_1a8;
+   _SLIST_ENTRY *local_1a0;
+-  PRTL_AVL_TABLE local_198;
 -  uint local_190;
 -  uint local_18c;
 -  int local_188;
 -  uint local_184;
-+  longlong **local_1a8;
-+  longlong *local_1a0;
-+  uint *local_198;
-+  uint **local_190;
++  _RTL_BALANCED_LINKS *local_198;
++  _RTL_BALANCED_LINKS *local_190;
 +  uint local_188;
 +  int local_184;
    uint local_180;
    uint local_17c;
--  longlong **local_178;
+-  PRTL_AVL_TABLE local_178;
 -  int local_170 [2];
 -  longlong local_168;
 -  ulonglong local_160;
--  longlong **local_158;
--  longlong **local_150;
--  int *local_148;
+-  PRTL_AVL_TABLE local_158;
+-  PRTL_AVL_TABLE *local_150;
+-  _SLIST_ENTRY *local_148;
 -  ulonglong local_140;
--  longlong local_138;
--  longlong local_130;
+-  PKSPIN_LOCK local_138;
 +  uint local_178;
 +  uint local_174;
 +  int local_170;
 +  uint local_16c;
 +  uint local_168;
-+  uint **local_160;
-+  uint **local_158;
-+  longlong *local_150;
-+  uint **local_148;
-+  uint **local_140;
++  _RTL_BALANCED_LINKS **local_160;
++  _RTL_BALANCED_LINKS *local_158;
++  PRTL_AVL_TABLE local_150;
++  _RTL_BALANCED_LINKS *local_148;
++  _RTL_BALANCED_LINKS *local_140;
 +  ulonglong local_138;
-+  longlong *local_130;
-   undefined local_128 [16];
-   undefined8 local_118;
-   undefined local_110 [16];
-   undefined8 local_100;
-   undefined local_f8 [16];
-   undefined8 local_e8;
-   undefined local_e0 [16];
-   undefined8 local_d0;
-   undefined local_c8 [16];
-   undefined8 local_b8;
-   undefined local_b0 [16];
-   undefined8 local_a0;
+   _SLIST_ENTRY *local_130;
+   undefined local_128 [24];
+   undefined local_110 [24];
+   undefined local_f8 [24];
+   undefined local_e0 [24];
+   undefined local_c8 [24];
+   undefined local_b0 [24];
 -  undefined local_98 [15];
 -  undefined uStack_89;
 +  undefined local_98 [16];
    undefined local_88 [16];
-   undefined local_78 [16];
+   undefined local_78 [8];
+-  PRTL_AVL_TABLE p_Stack_70;
++  _RTL_BALANCED_LINKS *p_Stack_70;
    undefined local_68 [16];
    ulonglong local_58;
    
 -  local_58 = __security_cookie ^ (ulonglong)auStackY_268;
--  pplVar22 = (longlong **)0x0;
+-  p_Var24 = (PRTL_AVL_TABLE)0x0;
 -  local_1c8 = param_5;
--  uVar27 = (ulonglong)param_3;
+-  uVar26 = (ulonglong)param_3;
 +  local_58 = __security_cookie ^ (ulonglong)auStackY_248;
-+  ppuVar12 = (uint **)0x0;
-+  local_1c8 = (uint **)param_5;
-+  local_1a8 = param_6;
++  p_Var14 = (_RTL_BALANCED_LINKS *)0x0;
++  local_1c8 = (_RTL_BALANCED_LINKS *)param_5;
++  local_1a8 = (_RTL_BALANCED_LINKS **)param_6;
 +  local_1f8 = '\0';
-   local_118 = 0;
+   local_128[0x10] = '\0';
+   local_128._17_7_ = 0;
    local_1b0 = *(undefined4 *)(param_1 + 0x14);
-   local_128 = ZEXT816(0);
+   local_128._0_16_ = ZEXT816(0);
 -  local_150 = param_6;
 -  local_1c0 = 0;
--  local_208 = (longlong **)0x0;
--  bVar6 = false;
--  local_216 = -1;
--  local_210 = (int *)0x0;
--  local_1b8 = 0;
+-  local_208 = (PRTL_AVL_TABLE)0x0;
+-  bVar3 = false;
+-  local_216 = 0xff;
+-  local_210 = (_SLIST_ENTRY *)0x0;
+-  local_1b8 = (_SLIST_ENTRY *)0x0;
 -  local_214 = 0;
 -  local_1f8 = param_2;
 -  local_1a8 = param_4;
 -  local_180 = param_3;
 -  local_168 = param_1;
--  uVar11 = RtlCompute37Hash(g_37HashSeed,param_2,
--                            *(undefined2 *)(*(longlong *)(*(longlong *)(param_1 + 0x28) + 0x10) + 6)
--                           );
--  lVar29 = param_1 + 0x300;
--  local_17c = uVar11 | 0x80000000;
--  local_138 = lVar29;
--  uVar8 = KfRaiseIrql();
--  uVar18 = SystemReserved1[0x12]._4_4_;
+-  uVar9 = RtlCompute37Hash(g_37HashSeed,param_2,
+-                           *(undefined2 *)(*(longlong *)(*(longlong *)(param_1 + 0x28) + 0x10) + 6))
+-  ;
+-  SpinLock = (PKSPIN_LOCK)(param_1 + 0x300);
+-  local_17c = uVar9 | 0x80000000;
+-  local_138 = SpinLock;
+-  KVar6 = KfRaiseIrql('\x02');
+-  uVar22 = SystemReserved1[0x12]._4_4_;
 +  local_1d4 = 0;
-+  local_1f7 = -1;
-+  local_1f0 = (longlong *)0x0;
-+  local_1a0 = (longlong *)0x0;
++  local_1f7 = 0xff;
++  local_1f0 = (PRTL_AVL_TABLE)0x0;
++  local_1a0 = (_SLIST_ENTRY *)0x0;
 +  local_1f4 = 0;
 +  local_1e8 = param_1;
 +  local_1d0 = (longlong *)param_2;
-+  local_1b8 = param_4;
++  local_1b8 = (_RTL_BALANCED_LINKS *)param_4;
 +  local_17c = param_3;
 +  local_1d8 = RtlCompute37Hash(g_37HashSeed,param_2,
 +                               *(undefined2 *)
 +                                (*(longlong *)(*(longlong *)(param_1 + 0x28) + 0x10) + 6));
 +  local_1d8 = local_1d8 | 0x80000000;
-+  uVar7 = KfRaiseIrql();
-+  uVar10 = SystemReserved1[0x12]._4_4_;
-   local_100 = 0;
--  local_200 = (int **)(((ulonglong)(*(uint *)(param_1 + 0x308) & SystemReserved1[0x12]._4_4_) + 1) *
--                       0x40 + lVar29);
-+  piVar18 = (int *)(param_1 + 0x300 +
++  KVar9 = KfRaiseIrql('\x02');
++  uVar12 = SystemReserved1[0x12]._4_4_;
+   local_110[0x10] = '\0';
+   local_110._17_7_ = 0;
+-  local_200 = (_SLIST_ENTRY *)
+-              (SpinLock +
+-              ((ulonglong)(*(uint *)(param_1 + 0x308) & SystemReserved1[0x12]._4_4_) + 1) * 8);
++  piVar22 = (int *)(param_1 + 0x300 +
 +                   ((ulonglong)(*(uint *)(param_1 + 0x308) & SystemReserved1[0x12]._4_4_) + 1) *
 +                   0x40);
-   local_110 = ZEXT816(0);
+   local_110._0_16_ = ZEXT816(0);
    LOCK();
--  *(int *)local_200 = *(int *)local_200 + 1;
-+  *piVar18 = *piVar18 + 1;
+-  *(int *)&local_200->Next = *(int *)&local_200->Next + 1;
++  *piVar22 = *piVar22 + 1;
    UNLOCK();
--  cVar9 = KeTestSpinLock(lVar29);
--  if (cVar9 == '\0') {
-+  cVar8 = KeTestSpinLock(local_1e8 + 0x300);
-+  if (cVar8 == '\0') {
+-  BVar7 = KeTestSpinLock(SpinLock);
+-  if (BVar7 == '\0') {
++  BVar10 = KeTestSpinLock((PKSPIN_LOCK)(local_1e8 + 0x300));
++  if (BVar10 == '\0') {
      LOCK();
--    *(int *)local_200 = *(int *)local_200 + -1;
-+    *piVar18 = *piVar18 + -1;
+-    *(int *)&local_200->Next = *(int *)&local_200->Next + -1;
++    *piVar22 = *piVar22 + -1;
      UNLOCK();
--    KeAcquireInStackQueuedSpinLockAtDpcLevel(lVar29,local_110);
-+    KeAcquireInStackQueuedSpinLockAtDpcLevel(local_1e8 + 0x300,local_110);
+-    KeAcquireInStackQueuedSpinLockAtDpcLevel(SpinLock,(PKLOCK_QUEUE_HANDLE)local_110);
++    KeAcquireInStackQueuedSpinLockAtDpcLevel
++              ((PKSPIN_LOCK)(local_1e8 + 0x300),(PKLOCK_QUEUE_HANDLE)local_110);
      LOCK();
--    *(int *)local_200 = *(int *)local_200 + 1;
-+    *piVar18 = *piVar18 + 1;
+-    *(int *)&local_200->Next = *(int *)&local_200->Next + 1;
++    *piVar22 = *piVar22 + 1;
      UNLOCK();
-     KeReleaseInStackQueuedSpinLockFromDpcLevel(local_110);
+     KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_110);
    }
--  puVar32 = (undefined *)(in_stack_fffffffffffffdc8 & 0xffffffffffffff00);
--  pplVar14 = (longlong **)
--             IppFindPathUnderLock
--                       (param_1,uVar11 | 0x80000000,local_1f8,param_3,local_1a8,(longlong)local_1c8,
--                        '\0');
-+  ppuVar24 = local_1c8;
-+  puVar29 = (undefined *)(in_stack_fffffffffffffde8 & 0xffffffffffffff00);
-+  ppuVar14 = local_1c8;
-+  ppuVar11 = (uint **)IppFindPathUnderLock
-+                                (local_1e8,local_1d8,param_2,param_3,local_1b8,(longlong)local_1c8,
-+                                 '\0');
+-  Buffer = (undefined *)(in_stack_fffffffffffffdc8 & 0xffffffffffffff00);
+-  p_Var12 = (PRTL_AVL_TABLE)
++  p_Var18 = local_1c8;
++  puVar31 = (undefined *)(in_stack_fffffffffffffde8 & 0xffffffffffffff00);
++  p_Var17 = local_1c8;
++  p_Var13 = (_RTL_BALANCED_LINKS *)
+             IppFindPathUnderLock
+-                      (param_1,uVar9 | 0x80000000,local_1f8,param_3,(uint **)local_1a8,
+-                       (longlong)local_1c8,'\0');
++                      (local_1e8,local_1d8,param_2,param_3,local_1b8,(longlong)local_1c8,'\0');
    LOCK();
--  piVar28 = (int *)(((ulonglong)(*(uint *)(param_1 + 0x308) & uVar18) + 1) * 0x40 + lVar29);
--  *piVar28 = *piVar28 + -1;
-+  piVar18 = (int *)(((ulonglong)(*(uint *)(local_1e8 + 0x308) & uVar10) + 1) * 0x40 + 0x300 +
+-  *(int *)(SpinLock + ((ulonglong)(*(uint *)(param_1 + 0x308) & uVar22) + 1) * 8) =
+-       *(int *)(SpinLock + ((ulonglong)(*(uint *)(param_1 + 0x308) & uVar22) + 1) * 8) + -1;
++  piVar22 = (int *)(((ulonglong)(*(uint *)(local_1e8 + 0x308) & uVar12) + 1) * 0x40 + 0x300 +
 +                   local_1e8);
-+  *piVar18 = *piVar18 + -1;
++  *piVar22 = *piVar22 + -1;
    UNLOCK();
--  KeLowerIrql(uVar8);
--  if (pplVar14 == (longlong **)0x0) {
-+  KeLowerIrql(uVar7);
-+  plVar28 = local_1d0;
-+  if (ppuVar11 == (uint **)0x0) {
+-  KeLowerIrql(KVar6);
+-  if (p_Var12 == (PRTL_AVL_TABLE)0x0) {
++  KeLowerIrql(KVar9);
++  plVar29 = local_1d0;
++  if (p_Var13 == (_RTL_BALANCED_LINKS *)0x0) {
      while( true ) {
--      local_216 = KfRaiseIrql(2);
--      ppuVar25 = local_1a8;
--      piVar15 = local_1f8;
--      local_1c0 = IppFindNextHopAtDpcHelper
--                            (param_1,(longlong *)local_1a8,local_1f8,uVar27,(longlong)local_1c8,
--                             !bVar6,puVar32,&local_210,&local_1b8,&local_214);
+-      local_216 = KfRaiseIrql('\x02');
+-      p_Var18 = local_1a8;
 -      piVar16 = local_1f8;
--      piVar28 = local_210;
--      pplVar14 = pplVar22;
+-      local_1c0 = IppFindNextHopAtDpcHelper
+-                            (param_1,(longlong *)local_1a8,local_1f8,uVar26,local_1c8,!bVar3,Buffer,
+-                             &local_210,&local_1b8,&local_214);
+-      piVar20 = local_1f8;
+-      p_Var27 = local_210;
+-      p_Var12 = p_Var24;
 -      if (local_1c0 < 0) break;
--      bVar6 = false;
+-      bVar3 = false;
 -      local_1d8 = local_1c8;
--      local_1d0 = ppuVar25;
--      local_208 = (longlong **)0x0;
+-      local_1d0 = p_Var18;
+-      local_208 = (PRTL_AVL_TABLE)0x0;
 -      local_148 = local_210;
--      if ((*local_210 == 0x616c7049) && (local_210[6] == 4)) {
--        local_1d0 = *(uint ***)(local_210 + 2);
+-      if ((*(int *)&local_210->Next == 0x616c7049) && (*(int *)&local_210[3].Next == 4)) {
+-        local_1d0 = local_210[1].Next;
 -      }
--      local_1e0 = *(uint ***)(local_210 + 2);
--      if (local_1c8 == (longlong **)0x0) {
--        if (local_1d0 == (uint **)0x0) {
--          local_1a0 = *local_1e0;
--          local_198 = (longlong **)0x0;
-+      ppuVar11 = (uint **)0x0;
-+      local_1f7 = KfRaiseIrql(2);
-+      ppuVar25 = local_1b8;
-+      ppuVar14 = (uint **)(CONCAT71((int7)((ulonglong)ppuVar14 >> 8),local_1f8) ^ 1);
+-      local_1e0 = local_210[1].Next;
+-      if (local_1c8 == (PRTL_AVL_TABLE)0x0) {
+-        if (local_1d0 == (_SLIST_ENTRY *)0x0) {
+-          local_1a0 = local_1e0->Next;
+-          local_198 = (PRTL_AVL_TABLE)0x0;
++      p_Var13 = (_RTL_BALANCED_LINKS *)0x0;
++      local_1f7 = KfRaiseIrql('\x02');
++      p_Var30 = local_1b8;
++      p_Var17 = (_RTL_BALANCED_LINKS *)(CONCAT71((int7)((ulonglong)p_Var17 >> 8),local_1f8) ^ 1);
 +      local_1d4 = IppFindNextHopAtDpcHelper
-+                            (local_1e8,(longlong *)local_1b8,plVar28,param_3,(longlong)ppuVar24,
-+                             (int)ppuVar14,puVar29,&local_1f0,&local_1a0,&local_1f4);
-+      plVar22 = local_1f0;
++                            (local_1e8,local_1b8,plVar29,param_3,p_Var18,(int)p_Var17,puVar31,
++                             &local_1f0,(longlong **)&local_1a0,&local_1f4);
++      p_Var23 = local_1f0;
 +      if (local_1d4 < 0) break;
-+      local_1e0 = ppuVar25;
++      local_1e0 = p_Var30;
 +      local_1f8 = '\0';
 +      local_150 = local_1f0;
-+      if ((*(int *)local_1f0 == 0x616c7049) && (*(int *)(local_1f0 + 3) == 4)) {
-+        local_1e0 = (uint **)local_1f0[1];
++      if ((*(int *)&(local_1f0->BalancedRoot).Parent == 0x616c7049) &&
++         (iVar21._0_1_ = (local_1f0->BalancedRoot).Balance,
++         iVar21._1_1_ = (local_1f0->BalancedRoot).Reserved[0],
++         iVar21._2_1_ = (local_1f0->BalancedRoot).Reserved[1],
++         iVar21._3_1_ = (local_1f0->BalancedRoot).Reserved[2], iVar21 == 4)) {
++        local_1e0 = (local_1f0->BalancedRoot).LeftChild;
 +      }
-+      ppuVar25 = (uint **)local_1f0[1];
-+      local_1c0 = ppuVar24;
-+      local_140 = ppuVar25;
-+      if (ppuVar24 == (uint **)0x0) {
-+        if (local_1e0 == (uint **)0x0) {
-+          local_198 = *ppuVar25;
-+          local_190 = (uint **)0x0;
++      p_Var30 = (local_1f0->BalancedRoot).LeftChild;
++      local_1c0 = p_Var18;
++      local_140 = p_Var30;
++      if (p_Var18 == (_RTL_BALANCED_LINKS *)0x0) {
++        if (local_1e0 == (_RTL_BALANCED_LINKS *)0x0) {
++          local_198 = p_Var30->Parent;
++          local_190 = (_RTL_BALANCED_LINKS *)0x0;
 +          local_180 = 0;
            local_184 = 0;
 -          local_188 = 0;
--          uVar18 = (uint)*(ushort *)(*(longlong *)(*(longlong *)(local_1a0 + 10) + 0x10) + 6);
--          local_18c = uVar18;
--          uVar13 = (**(code **)(*(longlong *)(local_1a0 + 10) + 0xa8))(local_1f8);
--          local_200 = (int **)piVar16;
--          local_208 = (longlong **)CONCAT44(local_208._4_4_,uVar13);
+-          uVar22 = (uint)*(ushort *)((longlong)&(local_1a0[5].Next[2].Next)->Next + 6);
+-          local_18c = uVar22;
+-          uVar11 = (*(code *)local_1a0[5].Next[0x15].Next)(local_1f8);
+-          local_200 = (_SLIST_ENTRY *)piVar20;
+-          local_208 = (PRTL_AVL_TABLE)CONCAT44(local_208._4_4_,uVar11);
 -          _local_98 = ZEXT816(0);
--          if (uVar18 != 0x10) {
--            iVar12 = *piVar16;
-+          uVar10 = (uint)*(ushort *)(*(longlong *)(*(longlong *)(local_198 + 10) + 0x10) + 6);
-+          local_168 = uVar10;
-+          local_188 = (**(code **)(*(longlong *)(local_198 + 10) + 0xa8))(plVar28);
+-          if (uVar22 != 0x10) {
+-            iVar10 = *piVar20;
++          uVar12 = (uint)*(ushort *)((longlong)&(local_198[1].LeftChild)->RightChild->Parent + 6);
++          local_168 = uVar12;
++          local_188 = (*(code *)local_198[1].LeftChild[5].LeftChild)(plVar29);
 +          local_98 = ZEXT816(0);
-+          plVar22 = plVar28;
-+          if (uVar10 != 0x10) {
-+            uVar4 = *(undefined4 *)plVar28;
-+            plVar22 = (longlong *)local_98;
++          plVar27 = plVar29;
++          if (uVar12 != 0x10) {
++            uVar4 = *(undefined4 *)plVar29;
++            plVar27 = (longlong *)local_98;
              local_98._0_12_ = ZEXT412(0xffff0000) << 0x40;
--            local_98[0xc] = (char)iVar12;
+-            local_98[0xc] = (char)iVar10;
 -            local_98[0xd] = 0;
--            local_98[0xe] = (char)((uint)iVar12 >> 0x10);
--            local_200 = (int **)local_98;
--            uStack_89 = (char)((uint)iVar12 >> 0x18);
--            local_98[0xd] = (char)((uint)iVar12 >> 8);
+-            local_98[0xe] = (char)((uint)iVar10 >> 0x10);
+-            local_200 = (_SLIST_ENTRY *)local_98;
+-            uStack_89 = (char)((uint)iVar10 >> 0x18);
+-            local_98[0xd] = (char)((uint)iVar10 >> 8);
 -          }
--          uVar8 = KfRaiseIrql(2);
+-          KVar6 = KfRaiseIrql('\x02');
 +            local_98[0xc] = (char)uVar4;
 +            local_98[0xd] = (char)((uint)uVar4 >> 8);
 +            local_98[0xe] = (char)((uint)uVar4 >> 0x10);
 +            local_98[0xf] = (char)((uint)uVar4 >> 0x18);
 +          }
-+          uVar7 = KfRaiseIrql(2);
-           local_e8 = 0;
-           local_f8 = ZEXT816(0);
++          KVar9 = KfRaiseIrql('\x02');
+           local_f8[0x10] = '\0';
+           local_f8._17_7_ = 0;
+           local_f8._0_16_ = ZEXT816(0);
            LOCK();
            DAT_0 = DAT_0 + 1;
            UNLOCK();
--          cVar9 = KeTestSpinLock(&PrefixPolicyTable);
--          if (cVar9 == '\0') {
-+          cVar8 = KeTestSpinLock(&PrefixPolicyTable);
-+          if (cVar8 == '\0') {
+-          BVar7 = KeTestSpinLock((PKSPIN_LOCK)&PrefixPolicyTable);
+-          if (BVar7 == '\0') {
++          BVar10 = KeTestSpinLock((PKSPIN_LOCK)&PrefixPolicyTable);
++          if (BVar10 == '\0') {
              LOCK();
              DAT_0 = DAT_0 + -1;
              UNLOCK();
-             KeAcquireInStackQueuedSpinLockAtDpcLevel(&PrefixPolicyTable);
+             KeAcquireInStackQueuedSpinLockAtDpcLevel
+                       ((PKSPIN_LOCK)&PrefixPolicyTable,(PKLOCK_QUEUE_HANDLE)local_f8);
              LOCK();
              DAT_0 = DAT_0 + 1;
              UNLOCK();
-             KeReleaseInStackQueuedSpinLockFromDpcLevel(local_f8);
+             KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_f8);
            }
            if (DAT_1 == 0) {
  LAB_2:
--            pplVar30 = (longlong **)&NullPrefixPolicy;
-+            ppuVar11 = (uint **)&NullPrefixPolicy;
+-            p_Var28 = (PRTL_AVL_TABLE)&NullPrefixPolicy;
++            p_Var13 = (_RTL_BALANCED_LINKS *)&NullPrefixPolicy;
            }
            else {
--            uVar26 = (ulonglong)DAT_1;
--            pplVar24 = pplVar22;
--            pplVar23 = DAT_3;
-+            uVar20 = (ulonglong)DAT_1;
-+            ppuVar12 = DAT_3;
+-            uVar25 = (ulonglong)DAT_1;
+-            p_Var15 = p_Var24;
+-            p_Var13 = DAT_3;
++            uVar24 = (ulonglong)DAT_1;
++            p_Var14 = DAT_3;
              do {
--              pplVar21 = pplVar23;
--              piVar15 = (int *)local_200;
--              for (uVar18 = *(uint *)(pplVar23 + 2); pplVar30 = pplVar24, 8 < uVar18;
--                  uVar18 = uVar18 - 8) {
--                bVar10 = *(byte *)piVar15;
--                piVar15 = (int *)((longlong)piVar15 + 1);
--                bVar3 = *(byte *)pplVar21;
--                pplVar21 = (longlong **)((longlong)pplVar21 + 1);
--                if (bVar10 != bVar3) goto LAB_4;
-+              ppuVar24 = ppuVar12;
-+              plVar21 = plVar22;
-+              for (uVar10 = *(uint *)(ppuVar12 + 2); 8 < uVar10; uVar10 = uVar10 - 8) {
-+                bVar9 = *(byte *)plVar21;
-+                plVar21 = (longlong *)((longlong)plVar21 + 1);
-+                bVar3 = *(byte *)ppuVar24;
-+                ppuVar24 = (uint **)((longlong)ppuVar24 + 1);
-+                if (bVar9 != bVar3) goto LAB_4;
+-              uVar22 = *(uint *)&(p_Var13->BalancedRoot).RightChild;
+-              p_Var23 = p_Var13;
+-              piVar16 = (int *)local_200;
+-              for (uVar9 = uVar22; p_Var28 = p_Var15, 8 < uVar9; uVar9 = uVar9 - 8) {
+-                bVar8 = *(byte *)piVar16;
+-                piVar16 = (int *)((longlong)piVar16 + 1);
+-                pRVar4 = &p_Var23->BalancedRoot;
+-                p_Var23 = (PRTL_AVL_TABLE)((longlong)&(p_Var23->BalancedRoot).Parent + 1);
+-                if (bVar8 != *(byte *)&pRVar4->Parent) goto LAB_4;
++              p_Var18 = p_Var14;
++              plVar26 = plVar27;
++              for (uVar12 = *(uint *)&p_Var14->RightChild; 8 < uVar12; uVar12 = uVar12 - 8) {
++                bVar11 = *(byte *)plVar26;
++                plVar26 = (longlong *)((longlong)plVar26 + 1);
++                pp_Var8 = &p_Var18->Parent;
++                p_Var18 = (_RTL_BALANCED_LINKS *)((longlong)&p_Var18->Parent + 1);
++                if (bVar11 != *(byte *)pp_Var8) goto LAB_4;
                }
--              if ((((uVar18 == 0) ||
--                   (bVar10 = 8 - (char)uVar18,
--                   *(byte *)piVar15 >> (bVar10 & 0x1f) == *(byte *)pplVar21 >> (bVar10 & 0x1f))) &&
--                  (pplVar30 = pplVar23, pplVar24 != (longlong **)0x0)) &&
--                 (*(uint *)(pplVar23 + 2) <= *(uint *)(pplVar24 + 2))) {
--                pplVar30 = pplVar24;
-+              if (((uVar10 == 0) ||
-+                  (bVar9 = 8 - (char)uVar10,
-+                  *(byte *)plVar21 >> (bVar9 & 0x1f) == *(byte *)ppuVar24 >> (bVar9 & 0x1f))) &&
-+                 ((ppuVar11 == (uint **)0x0 || (*(uint *)(ppuVar11 + 2) < *(uint *)(ppuVar12 + 2))))
-+                 ) {
-+                ppuVar11 = ppuVar12;
+-              if ((((uVar9 == 0) ||
+-                   (bVar8 = 8 - (char)uVar9,
+-                   *(byte *)piVar16 >> (bVar8 & 0x1f) ==
+-                   *(byte *)&(p_Var23->BalancedRoot).Parent >> (bVar8 & 0x1f))) &&
+-                  (p_Var28 = p_Var13, p_Var15 != (PRTL_AVL_TABLE)0x0)) &&
+-                 (uVar22 <= *(uint *)&(p_Var15->BalancedRoot).RightChild)) {
+-                p_Var28 = p_Var15;
++              if (((uVar12 == 0) ||
++                  (bVar11 = 8 - (char)uVar12,
++                  *(byte *)plVar26 >> (bVar11 & 0x1f) ==
++                  *(byte *)&p_Var18->Parent >> (bVar11 & 0x1f))) &&
++                 ((p_Var13 == (_RTL_BALANCED_LINKS *)0x0 ||
++                  (*(uint *)&p_Var13->RightChild < *(uint *)&p_Var14->RightChild)))) {
++                p_Var13 = p_Var14;
                }
  LAB_4:
--              pplVar23 = (longlong **)((longlong)pplVar23 + 0x1c);
--              uVar26 = uVar26 - 1;
--              pplVar24 = pplVar30;
--            } while (uVar26 != 0);
+-              p_Var13 = (PRTL_AVL_TABLE)&(p_Var13->BalancedRoot).field_0x1c;
+-              uVar25 = uVar25 - 1;
+-              p_Var15 = p_Var28;
+-            } while (uVar25 != 0);
 -            param_6 = local_150;
--            piVar16 = local_1f8;
--            local_1f0 = pplVar30;
--            if (pplVar30 == (longlong **)0x0) goto LAB_2;
-+              ppuVar12 = (uint **)((longlong)ppuVar12 + 0x1c);
-+              uVar20 = uVar20 - 1;
-+            } while (uVar20 != 0);
-+            if (ppuVar11 == (uint **)0x0) goto LAB_2;
+-            piVar20 = local_1f8;
+-            local_1f0 = p_Var28;
+-            if (p_Var28 == (PRTL_AVL_TABLE)0x0) goto LAB_2;
++              p_Var14 = (_RTL_BALANCED_LINKS *)&p_Var14->field_0x1c;
++              uVar24 = uVar24 - 1;
++            } while (uVar24 != 0);
++            if (p_Var13 == (_RTL_BALANCED_LINKS *)0x0) goto LAB_2;
            }
            LOCK();
            DAT_0 = DAT_0 + -1;
            UNLOCK();
--          local_140 = *(ulonglong *)((longlong)pplVar30 + 0x14) >> 0x20;
--          KeLowerIrql(uVar8);
--          puVar2 = local_1a0;
--          puVar31 = local_1a0 + 0x24;
-+          local_138 = *(ulonglong *)((longlong)ppuVar11 + 0x14) >> 0x20;
-+          KeLowerIrql(uVar7);
-+          puVar2 = local_198;
-+          puVar19 = local_198 + 0x24;
-           local_d0 = 0;
-           local_e0 = ZEXT816(0);
+-          local_140 = *(ulonglong *)((longlong)&(p_Var28->BalancedRoot).RightChild + 4) >> 0x20;
+-          KeLowerIrql(KVar6);
+-          p_Var18 = local_1a0;
+-          p_Var29 = local_1a0 + 0x12;
++          local_138 = *(ulonglong *)((longlong)&p_Var13->RightChild + 4) >> 0x20;
++          KeLowerIrql(KVar9);
++          p_Var18 = local_198;
++          p_Var14 = local_198 + 4;
+           local_e0[0x10] = '\0';
+           local_e0._17_7_ = 0;
+           local_e0._0_16_ = ZEXT816(0);
            LOCK();
--          local_1a0[0x26] = local_1a0[0x26] + 1;
-+          local_198[0x26] = local_198[0x26] + 1;
+-          *(int *)&local_1a0[0x13].Next = *(int *)&local_1a0[0x13].Next + 1;
++          *(int *)&local_198[4].Balance = *(int *)&local_198[4].Balance + 1;
            UNLOCK();
--          cVar9 = KeTestSpinLock(puVar31);
--          if (cVar9 == '\0') {
-+          cVar8 = KeTestSpinLock(puVar19);
-+          if (cVar8 == '\0') {
+-          BVar7 = KeTestSpinLock((PKSPIN_LOCK)p_Var29);
+-          if (BVar7 == '\0') {
++          BVar10 = KeTestSpinLock((PKSPIN_LOCK)&p_Var14->RightChild);
++          if (BVar10 == '\0') {
              LOCK();
-             puVar1 = puVar2 + 0x26;
-             *puVar1 = *puVar1 - 1;
+-            p_Var1 = p_Var18 + 0x13;
+-            *(int *)&p_Var1->Next = *(int *)&p_Var1->Next + -1;
++            pCVar1 = &p_Var18[4].Balance;
++            *(int *)pCVar1 = *(int *)pCVar1 + -1;
              UNLOCK();
--            KeAcquireInStackQueuedSpinLockAtDpcLevel(puVar31);
-+            KeAcquireInStackQueuedSpinLockAtDpcLevel(puVar19);
+             KeAcquireInStackQueuedSpinLockAtDpcLevel
+-                      ((PKSPIN_LOCK)p_Var29,(PKLOCK_QUEUE_HANDLE)local_e0);
++                      ((PKSPIN_LOCK)&p_Var14->RightChild,(PKLOCK_QUEUE_HANDLE)local_e0);
              LOCK();
-             puVar2 = puVar2 + 0x26;
-             *puVar2 = *puVar2 + 1;
+-            p_Var18 = p_Var18 + 0x13;
+-            *(int *)&p_Var18->Next = *(int *)&p_Var18->Next + 1;
++            pCVar1 = &p_Var18[4].Balance;
++            *(int *)pCVar1 = *(int *)pCVar1 + 1;
              UNLOCK();
-             KeReleaseInStackQueuedSpinLockFromDpcLevel(local_e0);
+             KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_e0);
            }
--          ppiVar19 = *(int ***)(local_1a0 + 0x28);
--          local_200 = ppiVar19;
--          if (ppiVar19 != (int **)(local_1a0 + 0x28)) {
-+          ppuVar12 = *(uint ***)(local_198 + 0x28);
-+          plVar22 = local_150;
-+          local_148 = ppuVar12;
-+          if (ppuVar12 != (uint **)(local_198 + 0x28)) {
+-          p_Var18 = local_1a0[0x14].Next;
+-          local_200 = p_Var18;
+-          if (p_Var18 != local_1a0 + 0x14) {
++          p_Var14 = local_198[5].Parent;
++          p_Var23 = local_150;
++          local_148 = p_Var14;
++          if (p_Var14 != local_198 + 5) {
              do {
--              ppuVar25 = (uint **)(ppiVar19 + -0x16);
--              ppiVar20 = ppiVar19;
--              if (*(longlong *)(*ppuVar25 + 10) ==
--                  *(longlong *)(**(longlong **)(piVar28 + 2) + 0x28)) {
--                local_200 = ppiVar19;
--                iVar12 = (**(code **)(*(longlong *)(**(longlong **)(piVar28 + 2) + 0x28) + 0xa8))
--                                   (piVar16);
--                ppuVar4 = *(uint ***)(piVar28 + 2);
--                if (iVar12 < 2) {
--                  uVar18 = *(uint *)(ppiVar19 + -0x15);
--                  uVar11 = *(uint *)(ppuVar4 + 1);
-+              plVar28 = local_1d0;
-+              ppuVar11 = (uint **)0x0;
-+              ppuVar24 = ppuVar12 + -0x16;
-+              local_160 = ppuVar24;
-+              local_148 = ppuVar12;
-+              if (*(longlong *)(*ppuVar24 + 10) == *(longlong *)(*(longlong *)plVar22[1] + 0x28)) {
-+                iVar17 = (**(code **)(*(longlong *)(*(longlong *)plVar22[1] + 0x28) + 0xa8))
-+                                   (local_1d0);
-+                ppuVar25 = (uint **)plVar22[1];
-+                if (iVar17 < 2) {
-+                  uVar10 = *(uint *)(ppuVar12 + -0x15);
-+                  uVar16 = *(uint *)(ppuVar25 + 1);
+-              p_Var29 = p_Var18 + -0x16;
+-              p_Var1 = (p_Var27[1].Next)->Next[5].Next;
+-              p_Var19 = p_Var18;
+-              if (p_Var29->Next[5].Next == p_Var1) {
+-                local_200 = p_Var18;
+-                iVar10 = (*(code *)p_Var1[0x15].Next)(piVar20);
+-                p_Var1 = p_Var27[1].Next;
+-                if (iVar10 < 2) {
+-                  uVar22 = *(uint *)&p_Var18[-0x15].Next;
+-                  uVar9 = *(uint *)&p_Var1[1].Next;
++              plVar29 = local_1d0;
++              p_Var13 = (_RTL_BALANCED_LINKS *)0x0;
++              pp_Var8 = &p_Var14[-6].RightChild;
++              p_Var18 = ((p_Var23->BalancedRoot).LeftChild)->Parent[1].LeftChild;
++              local_160 = pp_Var8;
++              local_148 = p_Var14;
++              if ((*pp_Var8)[1].LeftChild == p_Var18) {
++                iVar21 = (*(code *)p_Var18[5].LeftChild)(local_1d0);
++                p_Var18 = (p_Var23->BalancedRoot).LeftChild;
++                if (iVar21 < 2) {
++                  uVar12._0_1_ = p_Var14[-6].Balance;
++                  uVar12._1_1_ = p_Var14[-6].Reserved[0];
++                  uVar12._2_1_ = p_Var14[-6].Reserved[1];
++                  uVar12._3_1_ = p_Var14[-6].Reserved[2];
++                  uVar20 = *(uint *)&p_Var18->LeftChild;
                  }
--                else if (iVar12 < 0xe) {
--                  uVar18 = *(uint *)((longlong)ppiVar19 + (longlong)(iVar12 + -2) * 4 + 0x260) &
-+                else if (iVar17 < 0xe) {
-+                  uVar10 = *(uint *)((longlong)ppuVar12 + (longlong)(iVar17 + -2) * 4 + 0x260) &
+-                else if (iVar10 < 0xe) {
+-                  uVar22 = *(uint *)((longlong)&p_Var18[0x4c].Next + (longlong)(iVar10 + -2) * 4) &
++                else if (iVar21 < 0xe) {
++                  uVar12 = *(uint *)((longlong)&p_Var14[0x13].Parent + (longlong)(iVar21 + -2) * 4)
++                           & 0xfffffff;
++                  uVar20 = *(uint *)(p_Var18[0x18].Reserved + (longlong)(iVar21 + -2) * 4 + -9) &
                             0xfffffff;
--                  uVar11 = *(uint *)((longlong)ppuVar4 + (longlong)(iVar12 + -2) * 4 + 0x310) &
-+                  uVar16 = *(uint *)((longlong)ppuVar25 + (longlong)(iVar17 + -2) * 4 + 0x310) &
-                            0xfffffff;
+-                  uVar9 = *(uint *)((longlong)&p_Var1[0x62].Next + (longlong)(iVar10 + -2) * 4) &
+-                          0xfffffff;
                  }
                  else {
--                  uVar18 = **ppuVar25;
--                  uVar11 = **ppuVar4;
-+                  uVar10 = **ppuVar24;
-+                  uVar16 = **ppuVar25;
+-                  uVar22 = *(uint *)&p_Var29->Next->Next;
+-                  uVar9 = *(uint *)&p_Var1->Next->Next;
++                  uVar12 = *(uint *)&(*pp_Var8)->Parent;
++                  uVar20 = *(uint *)&p_Var18->Parent->Parent;
                  }
--                if ((uVar18 == uVar11) &&
--                   ((ppuVar25 == ppuVar4 || ((*(byte *)(ppiVar19 + 0x1d) & 0x30) != 0)))) {
-+                if ((uVar10 == uVar16) &&
-+                   ((ppuVar24 == ppuVar25 || ((*(byte *)(ppuVar12 + 0x1d) & 0x30) != 0)))) {
-                   local_c8 = ZEXT816(0);
-                   local_b8 = 0;
+-                if ((uVar22 == uVar9) &&
+-                   ((p_Var29 == p_Var1 || ((*(byte *)&p_Var18[0x1d].Next & 0x30) != 0)))) {
++                if ((uVar12 == uVar20) &&
++                   (((_RTL_BALANCED_LINKS *)pp_Var8 == p_Var18 ||
++                    ((*(byte *)&p_Var14[7].LeftChild & 0x30) != 0)))) {
+                   local_c8._0_16_ = ZEXT816(0);
+                   local_c8[0x10] = '\0';
+                   local_c8._17_7_ = 0;
                    LOCK();
--                  *(int *)(ppiVar19 + 0x1c) = *(int *)(ppiVar19 + 0x1c) + 1;
-+                  *(uint *)(ppuVar12 + 0x1c) = *(uint *)(ppuVar12 + 0x1c) + 1;
+-                  *(int *)&p_Var18[0x1c].Next = *(int *)&p_Var18[0x1c].Next + 1;
++                  *(uint *)&p_Var14[7].Parent = *(uint *)&p_Var14[7].Parent + 1;
                    UNLOCK();
--                  cVar9 = KeTestSpinLock(ppiVar19 + 0x1b);
--                  if (cVar9 == '\0') {
-+                  cVar8 = KeTestSpinLock(ppuVar12 + 0x1b);
-+                  if (cVar8 == '\0') {
+-                  BVar7 = KeTestSpinLock((PKSPIN_LOCK)(p_Var18 + 0x1b));
+-                  if (BVar7 == '\0') {
++                  BVar10 = KeTestSpinLock((PKSPIN_LOCK)&p_Var14[6].Balance);
++                  if (BVar10 == '\0') {
                      LOCK();
--                    *(int *)(ppiVar19 + 0x1c) = *(int *)(ppiVar19 + 0x1c) + -1;
-+                    *(uint *)(ppuVar12 + 0x1c) = *(uint *)(ppuVar12 + 0x1c) - 1;
+-                    *(int *)&p_Var18[0x1c].Next = *(int *)&p_Var18[0x1c].Next + -1;
++                    *(uint *)&p_Var14[7].Parent = *(uint *)&p_Var14[7].Parent - 1;
                      UNLOCK();
--                    KeAcquireInStackQueuedSpinLockAtDpcLevel(ppiVar19 + 0x1b);
-+                    KeAcquireInStackQueuedSpinLockAtDpcLevel(ppuVar12 + 0x1b);
+                     KeAcquireInStackQueuedSpinLockAtDpcLevel
+-                              ((PKSPIN_LOCK)(p_Var18 + 0x1b),(PKLOCK_QUEUE_HANDLE)local_c8);
++                              ((PKSPIN_LOCK)&p_Var14[6].Balance,(PKLOCK_QUEUE_HANDLE)local_c8);
                      LOCK();
--                    *(int *)(ppiVar19 + 0x1c) = *(int *)(ppiVar19 + 0x1c) + 1;
-+                    *(uint *)(ppuVar12 + 0x1c) = *(uint *)(ppuVar12 + 0x1c) + 1;
+-                    *(int *)&p_Var18[0x1c].Next = *(int *)&p_Var18[0x1c].Next + 1;
++                    *(uint *)&p_Var14[7].Parent = *(uint *)&p_Var14[7].Parent + 1;
                      UNLOCK();
-                     KeReleaseInStackQueuedSpinLockFromDpcLevel(local_c8);
+                     KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_c8);
                    }
--                  local_178 = (longlong **)0x0;
+-                  local_178 = (PRTL_AVL_TABLE)0x0;
 -                  local_170[0] = 0;
 -                  local_190 = 0;
-+                  local_158 = (uint **)0x0;
+-                  p_Var27 = p_Var29->Next[5].Next;
++                  local_158 = (_RTL_BALANCED_LINKS *)0x0;
 +                  local_170 = 0;
 +                  local_16c = 0;
                    local_68._0_12_ = ZEXT812(0);
-                   local_78 = ZEXT816(0);
--                  uVar18 = (uint)*(ushort *)
--                                  (*(longlong *)(*(longlong *)(*ppuVar25 + 10) + 0x10) + 6);
--                  local_1e8 = uVar18;
--                  uVar13 = (**(code **)(*(longlong *)(*ppuVar25 + 10) + 0xa8))(piVar16);
--                  local_1f0 = (longlong **)CONCAT44(local_1f0._4_4_,uVar13);
-+                  uVar10 = (uint)*(ushort *)
-+                                  (*(longlong *)(*(longlong *)(*ppuVar24 + 10) + 0x10) + 6);
-+                  local_178 = uVar10;
-+                  local_174 = (**(code **)(*(longlong *)(*ppuVar24 + 10) + 0xa8))(plVar28);
+                   _local_78 = ZEXT816(0);
+-                  uVar22 = (uint)*(ushort *)((longlong)&(p_Var27[2].Next)->Next + 6);
+-                  local_1e8 = uVar22;
+-                  uVar11 = (*(code *)p_Var27[0x15].Next)(piVar20);
+-                  local_1f0 = (PRTL_AVL_TABLE)CONCAT44(local_1f0._4_4_,uVar11);
++                  uVar12 = (uint)*(ushort *)
++                                  ((longlong)&((*pp_Var8)[1].LeftChild)->RightChild->Parent + 6);
++                  local_178 = uVar12;
++                  local_174 = (*(code *)(*pp_Var8)[1].LeftChild[5].LeftChild)(plVar29);
                    local_88 = ZEXT816(0);
--                  piVar28 = piVar16;
--                  if (uVar18 != 0x10) {
--                    iVar12 = *piVar16;
--                    piVar28 = (int *)local_88;
-+                  if (uVar10 != 0x10) {
-+                    iVar17 = *(int *)plVar28;
-+                    plVar28 = (longlong *)local_88;
+-                  piVar16 = piVar20;
+-                  if (uVar22 != 0x10) {
+-                    iVar10 = *piVar20;
+-                    piVar16 = (int *)local_88;
++                  if (uVar12 != 0x10) {
++                    iVar21 = *(int *)plVar29;
++                    plVar29 = (longlong *)local_88;
                      local_88._0_12_ = ZEXT412(0xffff0000) << 0x40;
--                    local_88[0xc] = (char)iVar12;
--                    local_88[0xd] = (char)((uint)iVar12 >> 8);
--                    local_88[0xe] = (char)((uint)iVar12 >> 0x10);
--                    local_88[0xf] = (char)((uint)iVar12 >> 0x18);
-+                    local_88[0xc] = (char)iVar17;
-+                    local_88[0xd] = (char)((uint)iVar17 >> 8);
-+                    local_88[0xe] = (char)((uint)iVar17 >> 0x10);
-+                    local_88[0xf] = (char)((uint)iVar17 >> 0x18);
+-                    local_88[0xc] = (char)iVar10;
+-                    local_88[0xd] = (char)((uint)iVar10 >> 8);
+-                    local_88[0xe] = (char)((uint)iVar10 >> 0x10);
+-                    local_88[0xf] = (char)((uint)iVar10 >> 0x18);
++                    local_88[0xc] = (char)iVar21;
++                    local_88[0xd] = (char)((uint)iVar21 >> 8);
++                    local_88[0xe] = (char)((uint)iVar21 >> 0x10);
++                    local_88[0xf] = (char)((uint)iVar21 >> 0x18);
                    }
--                  uVar8 = KfRaiseIrql(2);
-+                  uVar7 = KfRaiseIrql(2);
-                   local_a0 = 0;
-                   local_b0 = ZEXT816(0);
+-                  KVar6 = KfRaiseIrql('\x02');
++                  KVar9 = KfRaiseIrql('\x02');
+                   local_b0[0x10] = '\0';
+                   local_b0._17_7_ = 0;
+                   local_b0._0_16_ = ZEXT816(0);
                    LOCK();
                    DAT_0 = DAT_0 + 1;
                    UNLOCK();
--                  cVar9 = KeTestSpinLock(&PrefixPolicyTable);
--                  if (cVar9 == '\0') {
-+                  cVar8 = KeTestSpinLock(&PrefixPolicyTable);
-+                  if (cVar8 == '\0') {
+-                  BVar7 = KeTestSpinLock((PKSPIN_LOCK)&PrefixPolicyTable);
+-                  if (BVar7 == '\0') {
++                  BVar10 = KeTestSpinLock((PKSPIN_LOCK)&PrefixPolicyTable);
++                  if (BVar10 == '\0') {
                      LOCK();
                      DAT_0 = DAT_0 + -1;
                      UNLOCK();
-                     KeAcquireInStackQueuedSpinLockAtDpcLevel(&PrefixPolicyTable);
+                     KeAcquireInStackQueuedSpinLockAtDpcLevel
+                               ((PKSPIN_LOCK)&PrefixPolicyTable,(PKLOCK_QUEUE_HANDLE)local_b0);
                      LOCK();
                      DAT_0 = DAT_0 + 1;
                      UNLOCK();
-                     KeReleaseInStackQueuedSpinLockFromDpcLevel(local_b0);
+                     KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_b0);
                    }
                    if (DAT_1 == 0) {
  LAB_5:
--                    pplVar30 = (longlong **)&NullPrefixPolicy;
-+                    ppuVar11 = (uint **)&NullPrefixPolicy;
+-                    p_Var28 = (PRTL_AVL_TABLE)&NullPrefixPolicy;
++                    p_Var13 = (_RTL_BALANCED_LINKS *)&NullPrefixPolicy;
                    }
                    else {
--                    uVar27 = (ulonglong)DAT_1;
--                    pplVar24 = DAT_3;
--                    pplVar23 = pplVar22;
-+                    uVar20 = (ulonglong)DAT_1;
-+                    ppuVar24 = DAT_3;
+-                    uVar26 = (ulonglong)DAT_1;
+-                    p_Var15 = DAT_3;
+-                    p_Var13 = p_Var24;
++                    uVar24 = (ulonglong)DAT_1;
++                    p_Var18 = DAT_3;
                      do {
--                      pplVar21 = pplVar24;
--                      piVar15 = piVar28;
--                      for (uVar18 = *(uint *)(pplVar24 + 2); pplVar30 = pplVar23, 8 < uVar18;
--                          uVar18 = uVar18 - 8) {
--                        bVar10 = *(byte *)piVar15;
--                        piVar15 = (int *)((longlong)piVar15 + 1);
--                        bVar3 = *(byte *)pplVar21;
--                        pplVar21 = (longlong **)((longlong)pplVar21 + 1);
--                        if (bVar10 != bVar3) goto LAB_6;
-+                      ppuVar25 = ppuVar24;
-+                      plVar22 = plVar28;
-+                      for (uVar10 = *(uint *)(ppuVar24 + 2); 8 < uVar10; uVar10 = uVar10 - 8) {
-+                        bVar9 = *(byte *)plVar22;
-+                        plVar22 = (longlong *)((longlong)plVar22 + 1);
-+                        bVar3 = *(byte *)ppuVar25;
-+                        ppuVar25 = (uint **)((longlong)ppuVar25 + 1);
-+                        if (bVar9 != bVar3) goto LAB_6;
+-                      uVar22 = *(uint *)&(p_Var15->BalancedRoot).RightChild;
+-                      p_Var23 = p_Var15;
+-                      piVar21 = piVar16;
+-                      for (uVar9 = uVar22; p_Var28 = p_Var13, 8 < uVar9; uVar9 = uVar9 - 8) {
+-                        bVar8 = *(byte *)piVar21;
+-                        piVar21 = (int *)((longlong)piVar21 + 1);
+-                        pRVar4 = &p_Var23->BalancedRoot;
+-                        p_Var23 = (PRTL_AVL_TABLE)((longlong)&(p_Var23->BalancedRoot).Parent + 1);
+-                        if (bVar8 != *(byte *)&pRVar4->Parent) goto LAB_6;
++                      p_Var30 = p_Var18;
++                      plVar27 = plVar29;
++                      for (uVar12 = *(uint *)&p_Var18->RightChild; 8 < uVar12; uVar12 = uVar12 - 8)
++                      {
++                        bVar11 = *(byte *)plVar27;
++                        plVar27 = (longlong *)((longlong)plVar27 + 1);
++                        pp_Var8 = &p_Var30->Parent;
++                        p_Var30 = (_RTL_BALANCED_LINKS *)((longlong)&p_Var30->Parent + 1);
++                        if (bVar11 != *(byte *)pp_Var8) goto LAB_6;
                        }
--                      if (((uVar18 == 0) ||
--                          (bVar10 = 8 - (char)uVar18,
--                          *(byte *)piVar15 >> (bVar10 & 0x1f) ==
--                          *(byte *)pplVar21 >> (bVar10 & 0x1f))) &&
--                         ((pplVar30 = pplVar24, pplVar23 != (longlong **)0x0 &&
--                          (*(uint *)(pplVar24 + 2) <= *(uint *)(pplVar23 + 2))))) {
--                        pplVar30 = pplVar23;
-+                      if (((uVar10 == 0) ||
-+                          (bVar9 = 8 - (char)uVar10,
-+                          *(byte *)plVar22 >> (bVar9 & 0x1f) == *(byte *)ppuVar25 >> (bVar9 & 0x1f))
-+                          ) && ((ppuVar11 == (uint **)0x0 ||
-+                                (*(uint *)(ppuVar11 + 2) < *(uint *)(ppuVar24 + 2))))) {
-+                        ppuVar11 = ppuVar24;
+-                      if (((uVar9 == 0) ||
+-                          (bVar8 = 8 - (char)uVar9,
+-                          *(byte *)piVar21 >> (bVar8 & 0x1f) ==
+-                          *(byte *)&(p_Var23->BalancedRoot).Parent >> (bVar8 & 0x1f))) &&
+-                         ((p_Var28 = p_Var15, p_Var13 != (PRTL_AVL_TABLE)0x0 &&
+-                          (uVar22 <= *(uint *)&(p_Var13->BalancedRoot).RightChild)))) {
+-                        p_Var28 = p_Var13;
++                      if (((uVar12 == 0) ||
++                          (bVar11 = 8 - (char)uVar12,
++                          *(byte *)plVar27 >> (bVar11 & 0x1f) ==
++                          *(byte *)&p_Var30->Parent >> (bVar11 & 0x1f))) &&
++                         ((p_Var13 == (_RTL_BALANCED_LINKS *)0x0 ||
++                          (*(uint *)&p_Var13->RightChild < *(uint *)&p_Var18->RightChild)))) {
++                        p_Var13 = p_Var18;
                        }
  LAB_6:
--                      pplVar24 = (longlong **)((longlong)pplVar24 + 0x1c);
--                      uVar27 = uVar27 - 1;
--                      pplVar23 = pplVar30;
--                    } while (uVar27 != 0);
--                    if (pplVar30 == (longlong **)0x0) goto LAB_5;
-+                      ppuVar24 = (uint **)((longlong)ppuVar24 + 0x1c);
-+                      uVar20 = uVar20 - 1;
-+                    } while (uVar20 != 0);
-+                    if (ppuVar11 == (uint **)0x0) goto LAB_5;
+-                      p_Var15 = (PRTL_AVL_TABLE)&(p_Var15->BalancedRoot).field_0x1c;
+-                      uVar26 = uVar26 - 1;
+-                      p_Var13 = p_Var28;
+-                    } while (uVar26 != 0);
+-                    if (p_Var28 == (PRTL_AVL_TABLE)0x0) goto LAB_5;
++                      p_Var18 = (_RTL_BALANCED_LINKS *)&p_Var18->field_0x1c;
++                      uVar24 = uVar24 - 1;
++                    } while (uVar24 != 0);
++                    if (p_Var13 == (_RTL_BALANCED_LINKS *)0x0) goto LAB_5;
                    }
-+                  uVar6 = *(undefined8 *)((longlong)ppuVar11 + 0x14);
++                  uVar7 = *(undefined8 *)((longlong)&p_Var13->RightChild + 4);
                    LOCK();
                    DAT_0 = DAT_0 + -1;
                    UNLOCK();
--                  local_160 = *(ulonglong *)((longlong)pplVar30 + 0x14) >> 0x20;
--                  KeLowerIrql(uVar8);
--                  uVar27 = local_160;
--                  uVar18 = local_1e8;
--                  piVar28 = local_210;
--                  pplVar24 = (longlong **)(ppiVar19 + 0x36);
-+                  KeLowerIrql(uVar7);
-+                  uVar10 = local_178;
-+                  plVar28 = local_1f0;
-+                  ppuVar24 = ppuVar12 + 0x36;
-                   local_78 = ZEXT816(0);
+-                  local_160 = *(ulonglong *)((longlong)&(p_Var28->BalancedRoot).RightChild + 4) >>
+-                              0x20;
+-                  KeLowerIrql(KVar6);
+-                  uVar26 = local_160;
+-                  uVar22 = local_1e8;
+-                  p_Var27 = local_210;
+-                  p_Var15 = (PRTL_AVL_TABLE)(p_Var18 + 0x36);
++                  KeLowerIrql(KVar9);
++                  uVar12 = local_178;
++                  p_Var23 = local_1f0;
++                  pp_Var8 = &p_Var14[0xd].RightChild;
+                   _local_78 = ZEXT816(0);
                    local_68 = ZEXT816(0);
                    do {
--                    if (ppiVar19[0x37] == (int *)0x0) {
--                      plVar5 = *pplVar24;
--                      local_160 = (ulonglong)*(uint *)(plVar5 + 10);
--                      local_1e8 = *(uint *)(plVar5 + 0xb);
--                      puVar32 = local_68 + -local_160;
--                      local_158 = (longlong **)RtlEnumerateGenericTableLikeADirectory(plVar5,0,0,1);
--                      if (local_158 == (longlong **)0x0) break;
--                      memcpy(local_68,(undefined *)(local_160 + (longlong)local_158),
+-                    if (p_Var18[0x37].Next == (_SLIST_ENTRY *)0x0) {
+-                      p_Var13 = (PRTL_AVL_TABLE)(p_Var15->BalancedRoot).Parent;
+-                      local_160 = (ulonglong)*(uint *)&p_Var13->AllocateRoutine;
+-                      local_1e8 = *(uint *)&p_Var13->FreeRoutine;
+-                      Buffer = local_68 + -local_160;
+-                      local_158 = (PRTL_AVL_TABLE)
+-                                  RtlEnumerateGenericTableLikeADirectory
+-                                            (p_Var13,(PRTL_AVL_MATCH_FUNCTION)0x0,(PVOID)0x0,1,
+-                                             (PVOID *)(local_78 + 8),(PULONG)local_78,Buffer);
+-                      if (local_158 == (PRTL_AVL_TABLE)0x0) break;
+-                      memcpy(local_68,(local_158->BalancedRoot).Reserved + (local_160 - 0x19),
 -                             (ulonglong)local_1e8);
--                      pplVar23 = local_158 + -4;
-+                    iVar17 = (int)((ulonglong)uVar6 >> 0x20);
-+                    if (ppuVar12[0x37] == (uint *)0x0) {
-+                      lVar13 = (longlong)*ppuVar24;
-+                      uVar16 = *(uint *)(lVar13 + 0x50);
-+                      uVar5 = *(uint *)(lVar13 + 0x58);
-+                      puVar29 = local_68 + -(ulonglong)uVar16;
-+                      ppuVar14 = (uint **)local_78;
-+                      lVar13 = RtlEnumerateGenericTableLikeADirectory(lVar13,0,0,1);
-+                      ppuVar11 = local_160;
-+                      plVar21 = local_1d0;
-+                      if (lVar13 == 0) break;
-+                      memcpy(local_68,(void *)((ulonglong)uVar16 + lVar13),(ulonglong)uVar5);
-+                      ppuVar25 = (uint **)(lVar13 + -0x20);
+-                      p_Var13 = (PRTL_AVL_TABLE)&local_158[-1].CompareRoutine;
++                    lVar3._0_1_ = p_Var14[0xd].Balance;
++                    lVar3._1_1_ = p_Var14[0xd].Reserved[0];
++                    lVar3._2_1_ = p_Var14[0xd].Reserved[1];
++                    lVar3._3_1_ = p_Var14[0xd].Reserved[2];
++                    lVar3._4_4_ = *(undefined4 *)&p_Var14[0xd].field_0x1c;
++                    iVar21 = (int)((ulonglong)uVar7 >> 0x20);
++                    if (lVar3 == 0) {
++                      Table = (PRTL_AVL_TABLE)*pp_Var8;
++                      uVar20 = *(uint *)&Table->AllocateRoutine;
++                      uVar5 = *(uint *)&Table->FreeRoutine;
++                      puVar31 = local_68 + -(ulonglong)uVar20;
++                      p_Var17 = (_RTL_BALANCED_LINKS *)local_78;
++                      pvVar15 = RtlEnumerateGenericTableLikeADirectory
++                                          (Table,(PRTL_AVL_MATCH_FUNCTION)0x0,(PVOID)0x0,1,
++                                           (PVOID *)(local_78 + 8),(PULONG)p_Var17,puVar31);
++                      pp_Var25 = local_160;
++                      plVar29 = local_1d0;
++                      if (pvVar15 == (PVOID)0x0) break;
++                      memcpy(local_68,(void *)((ulonglong)uVar20 + (longlong)pvVar15),
++                             (ulonglong)uVar5);
++                      p_Var13 = (_RTL_BALANCED_LINKS *)((longlong)pvVar15 + -0x20);
                      }
                      else {
--                      pplVar23 = (longlong **)local_78._8_8_;
--                      if ((longlong **)local_78._8_8_ == (longlong **)0x0) {
--                        pplVar23 = (longlong **)*pplVar24;
-+                      ppuVar11 = (uint **)local_78._8_8_;
-+                      if ((uint **)local_78._8_8_ == (uint **)0x0) {
-+                        ppuVar11 = (uint **)*ppuVar24;
+-                      p_Var13 = p_Stack_70;
+-                      if (p_Stack_70 == (PRTL_AVL_TABLE)0x0) {
+-                        p_Var13 = (PRTL_AVL_TABLE)(p_Var15->BalancedRoot).Parent;
++                      p_Var18 = p_Stack_70;
++                      if (p_Stack_70 == (_RTL_BALANCED_LINKS *)0x0) {
++                        p_Var18 = *pp_Var8;
                        }
--                      if (pplVar23 == pplVar24) {
-+                      if (ppuVar11 == ppuVar24) {
-                         local_78._8_8_ = 0;
--                        pplVar23 = pplVar22;
+-                      if (p_Var13 == p_Var15) {
+-                        p_Stack_70 = (PRTL_AVL_TABLE)0x0;
+-                        p_Var13 = p_Var24;
++                      if (p_Var18 == (_RTL_BALANCED_LINKS *)pp_Var8) {
++                        p_Stack_70 = (_RTL_BALANCED_LINKS *)0x0;
                        }
                        else {
--                        local_78._8_8_ = *pplVar23;
-+                        local_78._8_8_ = *ppuVar11;
+-                        p_Stack_70 = (PRTL_AVL_TABLE)(p_Var13->BalancedRoot).Parent;
++                        p_Stack_70 = p_Var18->Parent;
 +                      }
-+                      ppuVar25 = (uint **)0x0;
-+                      if (ppuVar11 != ppuVar24) {
-+                        ppuVar25 = ppuVar11;
++                      p_Var13 = (_RTL_BALANCED_LINKS *)0x0;
++                      if (p_Var18 != (_RTL_BALANCED_LINKS *)pp_Var8) {
++                        p_Var13 = p_Var18;
                        }
                      }
--                    if (pplVar23 == (longlong **)0x0) break;
--                    puVar32 = (undefined *)CONCAT44((int)((ulonglong)puVar32 >> 0x20),(int)uVar27);
--                    iVar12 = IppUpdateBestSourceAddress
--                                       ((longlong)(pplVar23 + -9),(longlong *)&local_178,&local_190,
--                                        local_170,piVar16,(int)local_1f0,(int)uVar27,uVar18,
--                                        (longlong *)(ppiVar19 + -0x16),piVar28);
--                  } while (iVar12 != 1);
--                  piVar28 = local_148;
--                  pplVar24 = local_178;
--                  ppiVar20 = local_200;
--                  if (local_178 != (longlong **)0x0) {
--                    plVar5 = local_178[4];
--                    puVar17 = (ulonglong *)
-+                    ppuVar11 = local_160;
-+                    plVar21 = local_1d0;
-+                    if (ppuVar25 == (uint **)0x0) break;
-+                    puVar29 = (undefined *)CONCAT44((int)((ulonglong)puVar29 >> 0x20),iVar17);
-+                    ppuVar14 = (uint **)(ulonglong)local_174;
-+                    iVar17 = IppUpdateBestSourceAddress
-+                                       ((longlong)(ppuVar25 + -9),(longlong *)&local_158,&local_16c,
-+                                        &local_170,(int *)local_1d0,local_174,iVar17,uVar10,
-+                                        (longlong *)local_160,(int *)plVar28);
-+                  } while (iVar17 != 1);
-+                  ppuVar24 = local_158;
-+                  ppuVar12 = local_190;
-+                  if (local_158 != (uint **)0x0) {
-+                    plVar28 = (longlong *)local_158[4];
-+                    puVar15 = (ulonglong *)
+-                    if (p_Var13 == (PRTL_AVL_TABLE)0x0) break;
+-                    Buffer = (undefined *)CONCAT44((int)((ulonglong)Buffer >> 0x20),(int)uVar26);
+-                    iVar10 = IppUpdateBestSourceAddress
+-                                       ((longlong)&p_Var13[-1].OrderedPointer,(longlong *)&local_178
+-                                        ,&local_190,local_170,piVar20,(int)local_1f0,(int)uVar26,
+-                                        uVar22,(longlong *)(p_Var18 + -0x16),(int *)p_Var27);
+-                  } while (iVar10 != 1);
+-                  p_Var27 = local_148;
+-                  p_Var15 = local_178;
+-                  p_Var19 = local_200;
+-                  if (local_178 != (PRTL_AVL_TABLE)0x0) {
+-                    plVar2 = (longlong *)local_178->OrderedPointer;
+-                    puVar14 = (ulonglong *)
++                    pp_Var25 = local_160;
++                    plVar29 = local_1d0;
++                    if (p_Var13 == (_RTL_BALANCED_LINKS *)0x0) break;
++                    puVar31 = (undefined *)CONCAT44((int)((ulonglong)puVar31 >> 0x20),iVar21);
++                    p_Var17 = (_RTL_BALANCED_LINKS *)(ulonglong)local_174;
++                    iVar21 = IppUpdateBestSourceAddress
++                                       ((longlong)&p_Var13[-3].Balance,(longlong *)&local_158,
++                                        &local_16c,&local_170,(int *)local_1d0,local_174,iVar21,
++                                        uVar12,(longlong *)local_160,(int *)p_Var23);
++                  } while (iVar21 != 1);
++                  p_Var18 = local_158;
++                  p_Var14 = local_190;
++                  if (local_158 != (_RTL_BALANCED_LINKS *)0x0) {
++                    p_Var13 = local_158[1].Parent;
++                    pUVar16 = p_Var13->Parent->Reserved +
                                ((ulonglong)
--                               ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar5 + 0x14)) *
--                               *(int *)(plVar5 + 2)) + *plVar5);
-+                               ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar28 + 0x14))
-+                               * *(uint *)(plVar28 + 2)) + *plVar28);
+-                               ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar2 + 0x14)) *
+-                               *(int *)(plVar2 + 2)) + *plVar2);
++                               ((SystemReserved1[0x12]._4_4_ %
++                                *(uint *)((longlong)&p_Var13->RightChild + 4)) *
++                               *(int *)&p_Var13->RightChild) - 0x19);
                      LOCK();
--                    uVar27 = *puVar17;
--                    *puVar17 = *puVar17 + 2;
-+                    uVar20 = *puVar15;
-+                    *puVar15 = *puVar15 + 2;
+-                    uVar26 = *puVar14;
+-                    *puVar14 = *puVar14 + 2;
++                    uVar24 = *(ulonglong *)pUVar16;
++                    *(ulonglong *)pUVar16 = *(ulonglong *)pUVar16 + 2;
                      UNLOCK();
--                    if ((uVar27 & 1) != 0) {
-+                    if ((uVar20 & 1) != 0) {
+-                    if ((uVar26 & 1) != 0) {
++                    if ((uVar24 & 1) != 0) {
                        LOCK();
--                      plVar5[3] = plVar5[3] + 2;
-+                      plVar28[3] = plVar28[3] + 2;
+-                      plVar2[3] = plVar2[3] + 2;
++                      *(longlong *)&p_Var13->Balance = *(longlong *)&p_Var13->Balance + 2;
                        UNLOCK();
                      }
                    }
                    LOCK();
--                  *(int *)(ppiVar19 + 0x1c) = *(int *)(ppiVar19 + 0x1c) + -1;
-+                  *(int *)(ppuVar11 + 0x32) = *(int *)(ppuVar11 + 0x32) + -1;
+-                  *(int *)&p_Var18[0x1c].Next = *(int *)&p_Var18[0x1c].Next + -1;
++                  *(int *)(pp_Var25 + 0x32) = *(int *)(pp_Var25 + 0x32) + -1;
                    UNLOCK();
--                  if (local_178 != (longlong **)0x0) {
+-                  if (local_178 != (PRTL_AVL_TABLE)0x0) {
 -                    local_158 = local_198;
--                    puVar32 = (undefined *)
--                              CONCAT44((int)((ulonglong)puVar32 >> 0x20),(int)local_140);
--                    uVar13 = IppUpdateBestSourceAddress
+-                    Buffer = (undefined *)CONCAT44((int)((ulonglong)Buffer >> 0x20),(int)local_140);
+-                    uVar11 = IppUpdateBestSourceAddress
 -                                       ((longlong)local_178,(longlong *)&local_198,&local_184,
--                                        &local_188,piVar16,(int)local_208,(int)local_140,local_18c,
--                                        (longlong *)local_1e0,local_210);
--                    local_1f0 = (longlong **)CONCAT44(local_1f0._4_4_,uVar13);
--                    if ((local_198 != pplVar24) ||
--                       (pplVar24 = local_158, local_158 != (longlong **)0x0)) {
--                      IppDereferenceLocalAddress((longlong)pplVar24);
-+                  plVar22 = local_150;
-+                  if (local_158 != (uint **)0x0) {
-+                    puVar29 = (undefined *)
-+                              CONCAT44((int)((ulonglong)puVar29 >> 0x20),(int)local_138);
-+                    ppuVar14 = (uint **)(ulonglong)local_188;
-+                    iVar17 = IppUpdateBestSourceAddress
+-                                        &local_188,piVar20,(int)local_208,(int)local_140,local_18c,
+-                                        (longlong *)local_1e0,(int *)local_210);
+-                    local_1f0 = (PRTL_AVL_TABLE)CONCAT44(local_1f0._4_4_,uVar11);
+-                    if ((local_198 != p_Var15) ||
+-                       (p_Var15 = local_158, local_158 != (PRTL_AVL_TABLE)0x0)) {
+-                      IppDereferenceLocalAddress(p_Var15);
++                  p_Var23 = local_150;
++                  if (local_158 != (_RTL_BALANCED_LINKS *)0x0) {
++                    puVar31 = (undefined *)
++                              CONCAT44((int)((ulonglong)puVar31 >> 0x20),(int)local_138);
++                    p_Var17 = (_RTL_BALANCED_LINKS *)(ulonglong)local_188;
++                    iVar21 = IppUpdateBestSourceAddress
 +                                       ((longlong)local_158,(longlong *)&local_190,&local_180,
-+                                        &local_184,(int *)plVar21,local_188,(int)local_138,local_168
++                                        &local_184,(int *)plVar29,local_188,(int)local_138,local_168
 +                                        ,(longlong *)local_140,(int *)local_1f0);
-+                    if ((local_190 != ppuVar24) || (ppuVar24 = ppuVar12, ppuVar12 != (uint **)0x0))
-+                    {
-+                      IppDereferenceLocalAddress((longlong)ppuVar24);
++                    if ((local_190 != p_Var18) ||
++                       (p_Var18 = p_Var14, p_Var14 != (_RTL_BALANCED_LINKS *)0x0)) {
++                      IppDereferenceLocalAddress(p_Var18);
                      }
 -                    if ((int)local_1f0 == 1) break;
-+                    plVar22 = local_150;
-+                    plVar28 = local_1d0;
++                    p_Var23 = local_150;
++                    plVar29 = local_1d0;
 +                    param_3 = local_17c;
-+                    if (iVar17 == 1) break;
++                    if (iVar21 == 1) break;
                    }
                  }
                }
--              ppiVar19 = (int **)*ppiVar20;
--              local_200 = ppiVar19;
--            } while (ppiVar19 != (int **)(local_1a0 + 0x28));
--            uVar27 = (ulonglong)local_180;
+-              p_Var18 = p_Var19->Next;
+-              local_200 = p_Var18;
+-            } while (p_Var18 != local_1a0 + 0x14);
+-            uVar26 = (ulonglong)local_180;
 -            param_6 = local_150;
--            lVar29 = local_138;
-+              ppuVar12 = (uint **)*local_148;
-+              plVar28 = local_1d0;
-+              local_148 = ppuVar12;
+-            SpinLock = local_138;
++              p_Var14 = local_148->Parent;
++              plVar29 = local_1d0;
++              local_148 = p_Var14;
 +              param_3 = local_17c;
-+            } while (ppuVar12 != (uint **)(local_198 + 0x28));
++            } while (p_Var14 != local_198 + 5);
            }
            LOCK();
--          local_1a0[0x26] = local_1a0[0x26] - 1;
-+          local_198[0x26] = local_198[0x26] - 1;
+-          *(int *)&local_1a0[0x13].Next = *(int *)&local_1a0[0x13].Next + -1;
++          *(int *)&local_198[4].Balance = *(int *)&local_198[4].Balance + -1;
            UNLOCK();
--          ppuVar25 = local_1e0;
--          pplVar23 = local_1d8;
--          piVar28 = local_210;
--          pplVar24 = local_198;
+           p_Var18 = local_1e0;
+-          p_Var13 = local_1d8;
+-          p_Var27 = local_210;
+-          p_Var15 = local_198;
 -          local_208 = local_198;
-+          ppuVar24 = local_1e0;
-+          ppuVar12 = local_190;
-+          ppuVar27 = local_1c0;
-+          ppuVar25 = local_140;
-+          plVar22 = local_1f0;
++          p_Var14 = local_190;
++          p_Var28 = local_1c0;
++          p_Var30 = local_140;
++          p_Var23 = local_1f0;
          }
          else {
--          uVar8 = KfRaiseIrql(2);
--          RtlAcquireReadLockAtDpcLevel((longlong)(local_1d0 + 0x31));
--          ppuVar25 = local_1d0;
--          local_1d8 = (longlong **)
--                      IppFindBestSourceAddressOnInterfaceUnderLock
--                                ((longlong *)local_1d0,local_1f8,piVar28);
-+          uVar7 = KfRaiseIrql(CONCAT71((uint7)(uint3)((uint)local_1d4 >> 8),2));
-+          RtlAcquireReadLockAtDpcLevel((longlong)(local_1e0 + 0x31));
-+          ppuVar12 = local_1e0;
-+          local_1c0 = (uint **)IppFindBestSourceAddressOnInterfaceUnderLock
-+                                         ((longlong *)local_1e0,(int *)plVar28,(int *)plVar22);
+-          KVar6 = KfRaiseIrql('\x02');
+-          RtlAcquireReadLockAtDpcLevel((PKSPIN_LOCK)(local_1d0 + 0x31));
+-          p_Var18 = local_1d0;
+-          local_1d8 = (PRTL_AVL_TABLE)
++          KVar9 = KfRaiseIrql('\x02');
++          RtlAcquireReadLockAtDpcLevel((PKSPIN_LOCK)&local_1e0[0xc].LeftChild);
++          p_Var14 = local_1e0;
++          local_1c0 = (_RTL_BALANCED_LINKS *)
+                       IppFindBestSourceAddressOnInterfaceUnderLock
+-                                ((longlong *)local_1d0,local_1f8,(int *)p_Var27);
++                                ((longlong *)local_1e0,(int *)plVar29,(int *)p_Var23);
            LOCK();
--          *(int *)(ppuVar25 + 0x32) = *(int *)(ppuVar25 + 0x32) + -1;
-+          *(int *)(ppuVar12 + 0x32) = *(int *)(ppuVar12 + 0x32) + -1;
+-          *(int *)&p_Var18[0x32].Next = *(int *)&p_Var18[0x32].Next + -1;
++          *(int *)&p_Var14[0xc].RightChild = *(int *)&p_Var14[0xc].RightChild + -1;
            UNLOCK();
--          KeLowerIrql(uVar8);
--          ppuVar25 = local_1e0;
--          pplVar23 = local_1d8;
--          piVar28 = local_210;
--          pplVar24 = pplVar22;
--          if (local_1d8 != (longlong **)0x0) goto LAB_7;
-+          KeLowerIrql(uVar7);
-+          ppuVar24 = local_1e0;
-+          ppuVar12 = ppuVar11;
-+          ppuVar27 = local_1c0;
-+          plVar22 = local_1f0;
-+          if (local_1c0 != (uint **)0x0) goto LAB_7;
+-          KeLowerIrql(KVar6);
++          KeLowerIrql(KVar9);
+           p_Var18 = local_1e0;
+-          p_Var13 = local_1d8;
+-          p_Var27 = local_210;
+-          p_Var15 = p_Var24;
+-          if (local_1d8 != (PRTL_AVL_TABLE)0x0) goto LAB_7;
++          p_Var14 = p_Var13;
++          p_Var28 = local_1c0;
++          p_Var23 = local_1f0;
++          if (local_1c0 != (_RTL_BALANCED_LINKS *)0x0) goto LAB_7;
          }
        }
        else {
--        CarAcquireCacheAwareReference(local_1c8[4],1);
-+        CarAcquireCacheAwareReference((longlong *)ppuVar24[4],1);
+-        CarAcquireCacheAwareReference((longlong *)local_1c8->OrderedPointer,1);
++        CarAcquireCacheAwareReference((longlong *)p_Var18[1].Parent,1);
  LAB_7:
--        ppuVar25 = local_1e0;
--        pplVar24 = (longlong **)
--                   IppFindBestSourceAddressOnHost((longlong *)local_1e0,local_1f8,piVar28);
--        ppuVar4 = local_1d0;
--        if (pplVar24 == local_1d8) {
--          if (local_1d0 != ppuVar25) {
--            local_214 = local_214 | 2;
-+        ppuVar12 = (uint **)IppFindBestSourceAddressOnHost
-+                                      ((longlong *)ppuVar25,(int *)plVar28,(int *)plVar22);
-+        if (ppuVar12 == local_1c0) {
-+          if (local_1e0 != ppuVar25) {
++        p_Var14 = (_RTL_BALANCED_LINKS *)
++                  IppFindBestSourceAddressOnHost((longlong *)p_Var30,(int *)plVar29,(int *)p_Var23);
++        if (p_Var14 == local_1c0) {
++          if (local_1e0 != p_Var30) {
 +            local_1f4 = local_1f4 | 2;
-           }
++          }
++        }
++        else {
++          local_1f4 = local_1f4 | 1;
++        }
++        if (p_Var14 != (_RTL_BALANCED_LINKS *)0x0) {
++          IppDereferenceLocalAddress(p_Var14);
++        }
++        p_Var14 = local_1c0;
++        uVar20 = *(uint *)&local_1c0->RightChild->LeftChild >> 0x1c;
++        p_Var28 = local_1c0;
++        uVar12 = IppGetInterfaceScopeZoneInline((uint **)p_Var30,uVar20);
+         p_Var18 = local_1e0;
+-        p_Var15 = (PRTL_AVL_TABLE)
+-                  IppFindBestSourceAddressOnHost((longlong *)local_1e0,local_1f8,(int *)p_Var27);
+-        p_Var29 = local_1d0;
+-        if (p_Var15 == local_1d8) {
+-          if (local_1d0 != p_Var18) {
+-            local_214 = local_214 | 2;
+-          }
++        uVar20 = IppGetInterfaceScopeZoneInline((uint **)local_1e0,uVar20);
++        if (uVar12 != uVar20) {
++          IppDereferenceLocalAddress(p_Var28);
++          local_1f8 = '\x01';
++          p_Var18 = local_1e0;
++          p_Var14 = p_Var13;
++          p_Var28 = local_1c0;
++        }
++      }
++      uVar12 = local_1f4;
++      p_Var13 = (_RTL_BALANCED_LINKS *)0x0;
++      if ((DAT_8 & 0x20) != 0) {
++        if (p_Var14 == (_RTL_BALANCED_LINKS *)0x0) {
++          p_Var17 = (_RTL_BALANCED_LINKS *)0x0;
          }
          else {
 -          local_214 = local_214 | 1;
 -        }
--        if (pplVar24 != (longlong **)0x0) {
--          IppDereferenceLocalAddress((longlong)pplVar24);
+-        if (p_Var15 != (PRTL_AVL_TABLE)0x0) {
+-          IppDereferenceLocalAddress(p_Var15);
 -        }
--        pplVar24 = local_1d8;
+-        p_Var15 = local_1d8;
 -        local_208 = local_1d8;
--        uVar11 = *(uint *)(local_1d8[2] + 1) >> 0x1c;
--        ppuVar25 = local_1e0;
--        pplVar23 = local_1d8;
--        uVar18 = IppGetInterfaceScopeZoneInline(local_1e0,uVar11);
--        uVar11 = IppGetInterfaceScopeZoneInline(ppuVar4,uVar11);
--        if (uVar18 != uVar11) {
--          IppDereferenceLocalAddress((longlong)pplVar23);
--          bVar6 = true;
--          ppuVar25 = local_1e0;
--          pplVar23 = local_1d8;
--          pplVar24 = pplVar22;
--          local_208 = pplVar22;
+-        uVar9 = *(uint *)(&((local_1d8->BalancedRoot).RightChild)->Parent + 1) >> 0x1c;
+-        p_Var18 = local_1e0;
+-        p_Var13 = local_1d8;
+-        uVar22 = IppGetInterfaceScopeZoneInline((uint **)local_1e0,uVar9);
+-        uVar9 = IppGetInterfaceScopeZoneInline((uint **)p_Var29,uVar9);
+-        if (uVar22 != uVar9) {
+-          IppDereferenceLocalAddress(p_Var13);
+-          bVar3 = true;
+-          p_Var18 = local_1e0;
+-          p_Var13 = local_1d8;
+-          p_Var15 = p_Var24;
+-          local_208 = p_Var24;
 -        }
 -      }
--      uVar18 = local_214;
-+          local_1f4 = local_1f4 | 1;
-+        }
-+        if (ppuVar12 != (uint **)0x0) {
-+          IppDereferenceLocalAddress((longlong)ppuVar12);
-+        }
-+        ppuVar12 = local_1c0;
-+        uVar16 = local_1c0[2][2] >> 0x1c;
-+        ppuVar27 = local_1c0;
-+        uVar10 = IppGetInterfaceScopeZoneInline(ppuVar25,uVar16);
-+        ppuVar24 = local_1e0;
-+        uVar16 = IppGetInterfaceScopeZoneInline(local_1e0,uVar16);
-+        if (uVar10 != uVar16) {
-+          IppDereferenceLocalAddress((longlong)ppuVar27);
-+          local_1f8 = '\x01';
-+          ppuVar24 = local_1e0;
-+          ppuVar12 = ppuVar11;
-+          ppuVar27 = local_1c0;
-+        }
-+      }
-+      uVar10 = local_1f4;
-+      ppuVar11 = (uint **)0x0;
-       if ((DAT_8 & 0x20) != 0) {
--        pplVar21 = pplVar22;
--        if (pplVar24 != (longlong **)0x0) {
--          pplVar21 = (longlong **)*pplVar24[2];
+-      uVar22 = local_214;
+-      if ((DAT_8 & 0x20) != 0) {
+-        p_Var23 = p_Var24;
+-        if (p_Var15 != (PRTL_AVL_TABLE)0x0) {
+-          p_Var23 = (PRTL_AVL_TABLE)((p_Var15->BalancedRoot).RightChild)->Parent;
 -        }
--        pplVar30 = pplVar22;
--        if (pplVar23 != (longlong **)0x0) {
--          pplVar30 = (longlong **)*pplVar23[2];
+-        p_Var28 = p_Var24;
+-        if (p_Var13 != (PRTL_AVL_TABLE)0x0) {
+-          p_Var28 = (PRTL_AVL_TABLE)((p_Var13->BalancedRoot).RightChild)->Parent;
 -        }
--        puVar32 = (undefined *)CONCAT44((int)((ulonglong)puVar32 >> 0x20),local_214);
-+        if (ppuVar12 == (uint **)0x0) {
-+          puVar26 = (undefined4 *)0x0;
+-        Buffer = (undefined *)CONCAT44((int)((ulonglong)Buffer >> 0x20),local_214);
++          p_Var17 = p_Var14->RightChild->Parent;
++        }
++        if (p_Var28 == (_RTL_BALANCED_LINKS *)0x0) {
++          p_Var28 = (_RTL_BALANCED_LINKS *)0x0;
 +        }
 +        else {
-+          puVar26 = *(undefined4 **)ppuVar12[2];
++          p_Var28 = p_Var28->RightChild->Parent;
 +        }
-+        if (ppuVar27 == (uint **)0x0) {
-+          puVar23 = (undefined4 *)0x0;
-+        }
-+        else {
-+          puVar23 = *(undefined4 **)ppuVar27[2];
-+        }
-+        puVar29 = (undefined *)CONCAT44((int)((ulonglong)puVar29 >> 0x20),local_1f4);
++        puVar31 = (undefined *)CONCAT44((int)((ulonglong)puVar31 >> 0x20),local_1f4);
          IppLogSrcAddrLookupEvent
--                  ((longlong)*ppuVar25,local_1f8,(undefined4 *)pplVar30,(undefined4 *)pplVar21,
--                   local_1d0,ppuVar25,local_214);
+-                  ((longlong)p_Var18->Next,local_1f8,(undefined4 *)p_Var28,(undefined4 *)p_Var23,
+-                   local_1d0,p_Var18,local_214);
 -      }
--      if (!bVar6) {
--        if (pplVar24 == (longlong **)0x0) {
--          pplVar24 = (longlong **)0x0;
+-      if (!bVar3) {
+-        if (p_Var15 == (PRTL_AVL_TABLE)0x0) {
+-          p_Var15 = (PRTL_AVL_TABLE)0x0;
 -        }
 -        else {
--          KeAcquireInStackQueuedSpinLockAtDpcLevel(lVar29,local_128);
--          lVar7 = local_168;
--          piVar15 = local_1f8;
--          if (-1 < *(int *)(lVar29 + 8)) {
--            piVar16 = (int *)(lVar29 + 0x40);
-+                  ((longlong)*ppuVar25,(undefined4 *)plVar28,puVar23,puVar26,ppuVar24,ppuVar25,
-+                   local_1f4);
-+        ppuVar14 = ppuVar25;
+-          KeAcquireInStackQueuedSpinLockAtDpcLevel(SpinLock,(PKLOCK_QUEUE_HANDLE)local_128);
+-          lVar5 = local_168;
+-          piVar16 = local_1f8;
+-          if (-1 < *(int *)(SpinLock + 1)) {
+-            pUVar17 = SpinLock + 8;
++                  ((longlong)p_Var30->Parent,(undefined4 *)plVar29,(undefined4 *)p_Var28,
++                   (undefined4 *)p_Var17,p_Var18,p_Var30,local_1f4);
++        p_Var17 = p_Var30;
 +      }
-+      lVar13 = local_1e8;
++      lVar3 = local_1e8;
 +      if (local_1f8 == '\0') {
-+        if (ppuVar12 != (uint **)0x0) {
-+          KeAcquireInStackQueuedSpinLockAtDpcLevel(local_1e8 + 0x300,local_128);
-+          iVar17 = 0;
-+          if (-1 < *(int *)(lVar13 + 0x308)) {
-+            piVar18 = (int *)(lVar13 + 0x340);
++        if (p_Var14 != (_RTL_BALANCED_LINKS *)0x0) {
++          KeAcquireInStackQueuedSpinLockAtDpcLevel
++                    ((PKSPIN_LOCK)(local_1e8 + 0x300),(PKLOCK_QUEUE_HANDLE)local_128);
++          iVar21 = 0;
++          if (-1 < *(int *)(lVar3 + 0x308)) {
++            piVar22 = (int *)(lVar3 + 0x340);
              do {
                do {
--              } while (*piVar16 != 0);
--              uVar11 = (int)pplVar14 + 1;
--              pplVar14 = (longlong **)(ulonglong)uVar11;
--              piVar16 = piVar16 + 0x10;
--              piVar28 = local_210;
--              uVar18 = local_214;
--            } while ((int)uVar11 <= *(int *)(lVar29 + 8));
+-              } while (*(int *)pUVar17 != 0);
+-              uVar9 = (int)p_Var12 + 1;
+-              p_Var12 = (PRTL_AVL_TABLE)(ulonglong)uVar9;
+-              pUVar17 = pUVar17 + 8;
+-              p_Var27 = local_210;
+-              uVar22 = local_214;
+-            } while ((int)uVar9 <= *(int *)(SpinLock + 1));
 -          }
--          pplVar14 = (longlong **)
--                     IppFindPathUnderLock
--                               (local_168,local_17c,local_1f8,(uint)uVar27,local_1a8,
--                                (longlong)local_1c8,'\x01');
--          if ((pplVar14 == (longlong **)0x0) &&
-+              } while (*piVar18 != 0);
-+              iVar17 = iVar17 + 1;
-+              piVar18 = piVar18 + 0x10;
-+              plVar22 = local_1f0;
-+              uVar10 = local_1f4;
-+            } while (iVar17 <= *(int *)(lVar13 + 0x308));
+-          p_Var12 = (PRTL_AVL_TABLE)
++              } while (*piVar22 != 0);
++              iVar21 = iVar21 + 1;
++              piVar22 = piVar22 + 0x10;
++              p_Var23 = local_1f0;
++              uVar12 = local_1f4;
++            } while (iVar21 <= *(int *)(lVar3 + 0x308));
 +          }
-+          ppuVar14 = local_1c8;
-+          if (((g_DuplicateEntries_IsEnabled_Cached != '\0') && (local_1b8 != (uint **)0x0)) &&
-+             (local_1c8 == (uint **)0x0)) {
-+            ppuVar14 = ppuVar12;
++          p_Var17 = local_1c8;
++          if (((g_DuplicateEntries_IsEnabled_Cached != '\0') &&
++              (local_1b8 != (_RTL_BALANCED_LINKS *)0x0)) &&
++             (local_1c8 == (_RTL_BALANCED_LINKS *)0x0)) {
++            p_Var17 = p_Var14;
 +          }
-+          ppuVar14 = (uint **)IppFindPathUnderLock
-+                                        (lVar13,local_1d8,plVar28,param_3,local_1b8,
-+                                         (longlong)ppuVar14,'\x01');
-+          if ((ppuVar14 == (uint **)0x0) &&
++          p_Var17 = (_RTL_BALANCED_LINKS *)
+                     IppFindPathUnderLock
+-                              (local_168,local_17c,local_1f8,(uint)uVar26,(uint **)local_1a8,
+-                               (longlong)local_1c8,'\x01');
+-          if ((p_Var12 == (PRTL_AVL_TABLE)0x0) &&
++                              (lVar3,local_1d8,plVar29,param_3,local_1b8,(longlong)p_Var17,'\x01');
++          if ((p_Var17 == (_RTL_BALANCED_LINKS *)0x0) &&
               (IppAllocatePathUnderLock
--                        (lVar7,uVar18,piVar15,(longlong)local_208,piVar28,local_1b8,local_1b0),
--             pplVar14 = extraout_RAX, extraout_RAX == (longlong **)0x0)) {
-+                        (lVar13,uVar10,plVar28,(longlong)ppuVar12,(int *)plVar22,(longlong)local_1a0
-+                         ,local_1b0), ppuVar14 = extraout_RAX, extraout_RAX == (uint **)0x0)) {
-             KeReleaseInStackQueuedSpinLockFromDpcLevel(local_128);
--            pplVar24 = local_208;
--            pplVar14 = pplVar22;
+-                        (lVar5,uVar22,piVar16,(_SLIST_ENTRY *)local_208,p_Var27,local_1b8,local_1b0)
+-             , p_Var12 = extraout_RAX, extraout_RAX == (PRTL_AVL_TABLE)0x0)) {
++                        (lVar3,uVar12,plVar29,(_SLIST_ENTRY *)p_Var14,(_SLIST_ENTRY *)p_Var23,
++                         local_1a0,local_1b0), p_Var17 = extraout_RAX,
++             extraout_RAX == (_RTL_BALANCED_LINKS *)0x0)) {
+             KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_128);
+-            p_Var15 = local_208;
+-            p_Var12 = p_Var24;
            }
            else {
-+            ppuVar11 = ppuVar14;
-             KeReleaseInStackQueuedSpinLockFromDpcLevel(local_128);
--            pplVar24 = local_208;
++            p_Var13 = p_Var17;
+             KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)local_128);
+-            p_Var15 = local_208;
            }
          }
          goto LAB_9;
        }
--      if (*piVar28 == 0x616c7049) {
--        IppDereferenceLocalAddress((longlong)piVar28);
+-      if (*(int *)&p_Var27->Next == 0x616c7049) {
+-        IppDereferenceLocalAddress(p_Var27);
 -      }
--      else if (*piVar28 == 0x656e7049) {
--        IppDereferenceNeighbor((longlong)piVar28);
+-      else if (*(int *)&p_Var27->Next == 0x656e7049) {
+-        IppDereferenceNeighbor(p_Var27);
 -      }
--      local_210 = (int *)0x0;
--      if (local_1b8 != 0) {
+-      local_210 = (_SLIST_ENTRY *)0x0;
+-      if (local_1b8 != (_SLIST_ENTRY *)0x0) {
 -        IppDereferenceRoute(local_1b8);
--        local_1b8 = 0;
+-        local_1b8 = (_SLIST_ENTRY *)0x0;
 -      }
 -      local_214 = 0;
 -      KeLowerIrql(local_216);
 -      param_1 = local_168;
-+      if (*(int *)plVar22 == 0x616c7049) {
-+        IppDereferenceLocalAddress((longlong)plVar22);
++      iVar21 = *(int *)&(p_Var23->BalancedRoot).Parent;
++      if (iVar21 == 0x616c7049) {
++        IppDereferenceLocalAddress(p_Var23);
 +      }
-+      else if (*(int *)plVar22 == 0x656e7049) {
-+        IppDereferenceNeighbor((longlong)plVar22);
++      else if (iVar21 == 0x656e7049) {
++        IppDereferenceNeighbor(p_Var23);
 +      }
-+      local_1f0 = (longlong *)0x0;
-+      if (local_1a0 != (longlong *)0x0) {
-+        IppDereferenceRoute((longlong)local_1a0);
-+        local_1a0 = (longlong *)0x0;
++      local_1f0 = (PRTL_AVL_TABLE)0x0;
++      if (local_1a0 != (_SLIST_ENTRY *)0x0) {
++        IppDereferenceRoute(local_1a0);
++        local_1a0 = (_SLIST_ENTRY *)0x0;
 +      }
 +      local_1f4 = 0;
 +      KeLowerIrql(local_1f7);
-+      ppuVar24 = local_1c8;
++      p_Var18 = local_1c8;
      }
--    pplVar24 = local_208;
+-    p_Var15 = local_208;
      if ((DAT_8 & 0x20) != 0) {
--      if (local_1c8 != (longlong **)0x0) {
--        pplVar22 = (longlong **)*local_1c8[2];
-+      ppuVar14 = ppuVar11;
-+      if (ppuVar24 != (uint **)0x0) {
-+        ppuVar14 = *(uint ***)ppuVar24[2];
+-      if (local_1c8 != (PRTL_AVL_TABLE)0x0) {
+-        p_Var24 = (PRTL_AVL_TABLE)((local_1c8->BalancedRoot).RightChild)->Parent;
++      p_Var17 = p_Var13;
++      if (p_Var18 != (_RTL_BALANCED_LINKS *)0x0) {
++        p_Var17 = p_Var18->RightChild->Parent;
        }
        IppLogRouteLookupEvent
--                (local_168,"IppFindOrCreatePath",piVar15,(undefined4 *)pplVar22,local_1a8,local_210)
--      ;
--      pplVar24 = local_208;
--      pplVar14 = (longlong **)0x0;
-+                (local_1e8,"IppFindOrCreatePath",(undefined4 *)plVar28,(undefined4 *)ppuVar14,
-+                 ppuVar25,(int *)local_1f0);
+-                (local_168,"IppFindOrCreatePath",piVar16,(undefined4 *)p_Var24,local_1a8,
+-                 (int *)local_210);
+-      p_Var15 = local_208;
+-      p_Var12 = (PRTL_AVL_TABLE)0x0;
++                (local_1e8,"IppFindOrCreatePath",(undefined4 *)plVar29,(undefined4 *)p_Var17,p_Var30
++                 ,(int *)local_1f0);
      }
    }
    else {
--    *param_6 = (longlong *)pplVar14;
--    piVar28 = local_210;
--    pplVar24 = local_208;
-+    *local_1a8 = (longlong *)ppuVar11;
-+    plVar22 = local_1f0;
+-    *param_6 = p_Var12;
+-    p_Var27 = local_210;
+-    p_Var15 = local_208;
++    *local_1a8 = p_Var13;
++    p_Var23 = local_1f0;
      if ((DAT_8 & 0x20) != 0) {
--      piVar15 = IppGetNextHopFromPath((longlong *)pplVar14);
--      if (local_1c8 != (longlong **)0x0) {
--        pplVar22 = (longlong **)*local_1c8[2];
-+      piVar18 = IppGetNextHopFromPath((longlong *)ppuVar11);
-+      ppuVar14 = ppuVar12;
-+      if (local_1c8 != (uint **)0x0) {
-+        ppuVar14 = *(uint ***)local_1c8[2];
+-      piVar16 = IppGetNextHopFromPath((longlong *)p_Var12);
+-      if (local_1c8 != (PRTL_AVL_TABLE)0x0) {
+-        p_Var24 = (PRTL_AVL_TABLE)((local_1c8->BalancedRoot).RightChild)->Parent;
++      piVar22 = IppGetNextHopFromPath((longlong *)p_Var13);
++      p_Var17 = p_Var14;
++      if (local_1c8 != (_RTL_BALANCED_LINKS *)0x0) {
++        p_Var17 = local_1c8->RightChild->Parent;
        }
        IppLogRouteLookupEvent
--                (param_1,"IppFindPath",local_1f8,(undefined4 *)pplVar22,local_1a8,piVar15);
--      piVar28 = local_210;
--      pplVar24 = local_208;
--      if (piVar15 != (int *)0x0) {
--        if (*piVar15 == 0x616c7049) {
--          IppDereferenceLocalAddress((longlong)piVar15);
--          piVar28 = local_210;
--          pplVar24 = local_208;
+-                (param_1,"IppFindPath",local_1f8,(undefined4 *)p_Var24,local_1a8,piVar16);
+-      p_Var27 = local_210;
+-      p_Var15 = local_208;
+-      if (piVar16 != (int *)0x0) {
+-        if (*piVar16 == 0x616c7049) {
+-          IppDereferenceLocalAddress(piVar16);
+-          p_Var27 = local_210;
+-          p_Var15 = local_208;
 -        }
--        else if (*piVar15 == 0x656e7049) {
--          IppDereferenceNeighbor((longlong)piVar15);
--          piVar28 = local_210;
--          pplVar24 = local_208;
-+                (local_1e8,"IppFindPath",(undefined4 *)local_1d0,(undefined4 *)ppuVar14,local_1b8,
-+                 piVar18);
-+      plVar22 = local_1f0;
-+      if (piVar18 != (int *)0x0) {
-+        if (*piVar18 == 0x616c7049) {
-+          IppDereferenceLocalAddress((longlong)piVar18);
-+          ppuVar12 = (uint **)0x0;
-+          plVar22 = local_1f0;
+-        else if (*piVar16 == 0x656e7049) {
+-          IppDereferenceNeighbor(piVar16);
+-          p_Var27 = local_210;
+-          p_Var15 = local_208;
++                (local_1e8,"IppFindPath",(undefined4 *)local_1d0,(undefined4 *)p_Var17,local_1b8,
++                 piVar22);
++      p_Var23 = local_1f0;
++      if (piVar22 != (int *)0x0) {
++        if (*piVar22 == 0x616c7049) {
++          IppDereferenceLocalAddress(piVar22);
++          p_Var14 = (_RTL_BALANCED_LINKS *)0x0;
++          p_Var23 = local_1f0;
 +        }
-+        else if (*piVar18 == 0x656e7049) {
-+          IppDereferenceNeighbor((longlong)piVar18);
-+          plVar22 = local_1f0;
++        else if (*piVar22 == 0x656e7049) {
++          IppDereferenceNeighbor(piVar22);
++          p_Var23 = local_1f0;
          }
        }
      }
    }
  LAB_9:
--  *param_6 = (longlong *)pplVar14;
--  if (local_216 != -1) {
+-  *param_6 = p_Var12;
+-  if (local_216 != 0xff) {
 -    KeLowerIrql(local_216);
 -  }
--  if (pplVar24 != (longlong **)0x0) {
--    IppDereferenceLocalAddress((longlong)pplVar24);
+-  if (p_Var15 != (PRTL_AVL_TABLE)0x0) {
+-    IppDereferenceLocalAddress(p_Var15);
 -  }
--  if (piVar28 == (int *)0x0) goto LAB_10;
--  if (*piVar28 == 0x616c7049) {
--    if (piVar28[6] == 3) {
--      IppDereferenceLocalMulticastAddress((longlong)piVar28);
-+  *local_1a8 = (longlong *)ppuVar11;
-+  if (local_1f7 != -1) {
+-  if (p_Var27 == (_SLIST_ENTRY *)0x0) goto LAB_10;
+-  if (*(int *)&p_Var27->Next == 0x616c7049) {
+-    if (*(int *)&p_Var27[3].Next == 3) {
+-      IppDereferenceLocalMulticastAddress(p_Var27);
++  *local_1a8 = p_Var13;
++  if (local_1f7 != 0xff) {
 +    KeLowerIrql(local_1f7);
 +  }
-+  if (ppuVar12 != (uint **)0x0) {
-+    IppDereferenceLocalAddress((longlong)ppuVar12);
++  if (p_Var14 != (_RTL_BALANCED_LINKS *)0x0) {
++    IppDereferenceLocalAddress(p_Var14);
 +  }
-+  if (plVar22 == (longlong *)0x0) goto LAB_10;
-+  if (*(int *)plVar22 == 0x616c7049) {
-+    if (*(int *)(plVar22 + 3) == 3) {
-+      IppDereferenceLocalMulticastAddress((longlong)plVar22);
++  if (p_Var23 == (PRTL_AVL_TABLE)0x0) goto LAB_10;
++  iVar21 = *(int *)&(p_Var23->BalancedRoot).Parent;
++  if (iVar21 == 0x616c7049) {
++    iVar6._0_1_ = (p_Var23->BalancedRoot).Balance;
++    iVar6._1_1_ = (p_Var23->BalancedRoot).Reserved[0];
++    iVar6._2_1_ = (p_Var23->BalancedRoot).Reserved[1];
++    iVar6._3_1_ = (p_Var23->BalancedRoot).Reserved[2];
++    if (iVar6 == 3) {
++      IppDereferenceLocalMulticastAddress(p_Var23);
      }
      else {
--      plVar5 = *(longlong **)(piVar28 + 8);
--      puVar17 = (ulonglong *)
-+      plVar28 = (longlong *)plVar22[4];
-+      puVar15 = (ulonglong *)
-                 ((ulonglong)
--                 ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar5 + 0x14)) *
--                 *(int *)(plVar5 + 2)) + *plVar5);
-+                 ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar28 + 0x14)) *
-+                 *(int *)(plVar28 + 2)) + *plVar28);
+-      p_Var27 = p_Var27[4].Next;
+-      puVar14 = (ulonglong *)
+-                ((longlong)&p_Var27->Next->Next +
++      plVar29 = (longlong *)p_Var23->OrderedPointer;
++      puVar19 = (ulonglong *)
++                (*plVar29 +
+                 (ulonglong)
+-                ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)&p_Var27[2].Next + 4)) *
+-                *(int *)&p_Var27[2].Next));
++                ((SystemReserved1[0x12]._4_4_ % *(uint *)((longlong)plVar29 + 0x14)) *
++                *(int *)(plVar29 + 2)));
        LOCK();
--      uVar27 = *puVar17;
--      *puVar17 = *puVar17 - 2;
-+      uVar20 = *puVar15;
-+      *puVar15 = *puVar15 - 2;
+-      uVar26 = *puVar14;
+-      *puVar14 = *puVar14 - 2;
++      uVar24 = *puVar19;
++      *puVar19 = *puVar19 - 2;
        UNLOCK();
--      if ((uVar27 & 1) != 0) {
-+      if ((uVar20 & 1) != 0) {
+-      if ((uVar26 & 1) != 0) {
++      if ((uVar24 & 1) != 0) {
          LOCK();
--        plVar5 = plVar5 + 3;
--        lVar29 = *plVar5;
--        *plVar5 = *plVar5 + -2;
-+        plVar28 = plVar28 + 3;
-+        lVar13 = *plVar28;
-+        *plVar28 = *plVar28 + -2;
+-        p_Var27 = p_Var27 + 3;
+-        p_Var18 = p_Var27->Next;
+-        p_Var27->Next = (_SLIST_ENTRY *)((longlong)&p_Var27->Next[-1].Next + 6);
++        plVar29 = plVar29 + 3;
++        lVar3 = *plVar29;
++        *plVar29 = *plVar29 + -2;
          UNLOCK();
--        if (lVar29 == 2) {
--          IppCleanupLocalAddress((longlong)local_210);
-+        if (lVar13 == 2) {
-+          IppCleanupLocalAddress((longlong)local_1f0);
+-        if (p_Var18 == (_SLIST_ENTRY *)0x2) {
+-          IppCleanupLocalAddress(local_210);
++        if (lVar3 == 2) {
++          IppCleanupLocalAddress(local_1f0);
          }
        }
      }
      goto LAB_10;
    }
--  if (*piVar28 != 0x656e7049) goto LAB_10;
--  iVar12 = piVar28[1];
--  if (iVar12 == 2) {
--    if ((*(byte *)((longlong)piVar28 + 0x45) & 9) == 8) {
-+  if (*(int *)plVar22 != 0x656e7049) goto LAB_10;
-+  iVar17 = *(int *)((longlong)plVar22 + 4);
-+  if (iVar17 == 2) {
-+    if (((*(byte *)((longlong)plVar22 + 0x45) & 1) == 0) &&
-+       ((*(byte *)((longlong)plVar22 + 0x45) & 8) != 0)) {
+-  if (*(int *)&p_Var27->Next != 0x656e7049) goto LAB_10;
+-  iVar10 = *(int *)((longlong)&p_Var27->Next + 4);
+-  if (iVar10 == 2) {
+-    if ((*(byte *)((longlong)&p_Var27[8].Next + 5) & 9) == 8) {
++  if (iVar21 != 0x656e7049) goto LAB_10;
++  iVar21 = *(int *)((longlong)&(p_Var23->BalancedRoot).Parent + 4);
++  if (iVar21 == 2) {
++    if (((p_Var23->field_0x45 & 1) == 0) && ((p_Var23->field_0x45 & 8) != 0)) {
        LOCK();
--      *(int *)(*(longlong *)(piVar28 + 2) + 0x13c) =
--           *(int *)(*(longlong *)(piVar28 + 2) + 0x13c) + 1;
-+      *(int *)(plVar22[1] + 0x13c) = *(int *)(plVar22[1] + 0x13c) + 1;
+-      piVar16 = (int *)((longlong)&p_Var27[1].Next[0x27].Next + 4);
+-      *piVar16 = *piVar16 + 1;
++      puVar31 = &(p_Var23->BalancedRoot).LeftChild[9].field_0x1c;
++      *(int *)puVar31 = *(int *)puVar31 + 1;
        UNLOCK();
        LOCK();
--      piVar15 = (int *)(*(longlong *)(*(longlong *)(piVar28 + 2) + 0x158) + 0x38);
--      *piVar15 = *piVar15 + 1;
-+      piVar18 = (int *)(*(longlong *)(plVar22[1] + 0x158) + 0x38);
-+      *piVar18 = *piVar18 + 1;
+-      p_Var18 = p_Var27[1].Next[0x2b].Next + 7;
+-      *(int *)&p_Var18->Next = *(int *)&p_Var18->Next + 1;
++      piVar22 = (int *)(*(longlong *)&(p_Var23->BalancedRoot).LeftChild[10].Balance + 0x38);
++      *piVar22 = *piVar22 + 1;
        UNLOCK();
--      iVar12 = piVar28[1];
-+      iVar17 = *(int *)((longlong)plVar22 + 4);
+-      iVar10 = *(int *)((longlong)&p_Var27->Next + 4);
++      iVar21 = *(int *)((longlong)&(p_Var23->BalancedRoot).Parent + 4);
        goto LAB_11;
      }
    }
    else {
  LAB_11:
--    if (iVar12 < 1) {
-+    if (iVar17 < 1) {
+-    if (iVar10 < 1) {
++    if (iVar21 < 1) {
                      /* WARNING: Subroutine does not return */
        KeBugCheck(0x1c);
      }
    }
    LOCK();
--  piVar28 = piVar28 + 1;
--  iVar12 = *piVar28;
--  *piVar28 = *piVar28 + -1;
-+  piVar18 = (int *)((longlong)plVar22 + 4);
-+  iVar17 = *piVar18;
-+  *piVar18 = *piVar18 + -1;
+-  piVar16 = (int *)((longlong)&p_Var27->Next + 4);
+-  iVar10 = *piVar16;
+-  *piVar16 = *piVar16 + -1;
++  piVar22 = (int *)((longlong)&(p_Var23->BalancedRoot).Parent + 4);
++  iVar21 = *piVar22;
++  *piVar22 = *piVar22 + -1;
    UNLOCK();
--  if (iVar12 == 1) {
--    IppCleanupNeighbor((longlong)local_210);
-+  if (iVar17 == 1) {
-+    IppCleanupNeighbor((longlong)local_1f0);
+-  if (iVar10 == 1) {
+-    IppCleanupNeighbor(local_210);
++  if (iVar21 == 1) {
++    IppCleanupNeighbor(local_1f0);
    }
  LAB_10:
--  if (local_1b8 != 0) {
+-  if (local_1b8 != (_SLIST_ENTRY *)0x0) {
 -    local_130 = local_1b8;
-+  if (local_1a0 != (longlong *)0x0) {
++  if (local_1a0 != (_SLIST_ENTRY *)0x0) {
 +    local_130 = local_1a0;
      LOCK();
--    piVar28 = (int *)(local_1b8 + 0x20);
--    iVar12 = *piVar28;
--    *piVar28 = *piVar28 + -1;
-+    plVar28 = local_1a0 + 4;
-+    iVar17 = *(int *)plVar28;
-+    *(int *)plVar28 = *(int *)plVar28 + -1;
+-    p_Var27 = local_1b8 + 4;
+-    iVar10 = *(int *)&p_Var27->Next;
+-    *(int *)&p_Var27->Next = *(int *)&p_Var27->Next + -1;
++    p_Var2 = local_1a0 + 4;
++    iVar21 = *(int *)&p_Var2->Next;
++    *(int *)&p_Var2->Next = *(int *)&p_Var2->Next + -1;
      UNLOCK();
--    if (iVar12 == 1) {
--      IppFreeRoute(&local_130);
-+    if (iVar17 == 1) {
-+      IppFreeRoute((longlong *)&local_130);
+-    if (iVar10 == 1) {
++    if (iVar21 == 1) {
+       IppFreeRoute(&local_130);
      }
    }
 -  __security_check_cookie(local_58 ^ (ulonglong)auStackY_268);
@@ -3068,7 +3126,7 @@ pie showData
 |calling|entry|entry|
 |paramcount|2|2|
 |`address`|1c0270fbc|1c0271fbc|
-|sig|undefined __fastcall DriverEntry(longlong * param_1, ushort * param_2)|undefined __fastcall DriverEntry(longlong * param_1, ushort * param_2)|
+|sig|undefined __fastcall DriverEntry(PDRIVER_OBJECT param_1, ushort * param_2)|undefined __fastcall DriverEntry(PDRIVER_OBJECT param_1, ushort * param_2)|
 |sym_type|Function|Function|
 |sym_source|IMPORTED|IMPORTED|
 |external|False|False|
@@ -3090,33 +3148,30 @@ pie showData
 ```diff
 --- DriverEntry
 +++ DriverEntry
-@@ -1,168 +1,172 @@
+@@ -1,161 +1,165 @@
  
  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
  
- void DriverEntry(longlong *param_1,ushort *param_2)
+ void DriverEntry(PDRIVER_OBJECT param_1,ushort *param_2)
  
  {
    char cVar1;
    uint uVar2;
    int iVar3;
-   ulonglong uVar4;
-   undefined4 *puVar5;
+   NTSTATUS NVar4;
+   ulonglong uVar5;
+   PRTL_OSVERSIONINFOW lpVersionInformation;
    undefined8 uVar6;
    undefined8 *puVar7;
    char *pcVar8;
    undefined4 uVar9;
-   undefined auStack_198 [32];
-   ulonglong local_178;
-   undefined local_170;
-   undefined8 *local_168;
+   undefined auStackY_198 [32];
    int local_158 [4];
-   undefined4 local_148;
-   undefined local_144 [278];
+   undefined local_148 [282];
    char local_2e;
    ulonglong local_28;
    
-   local_28 = __security_cookie ^ (ulonglong)auStack_198;
+   local_28 = __security_cookie ^ (ulonglong)auStackY_198;
    wil_InitializeFeatureStaging();
    uVar2 = Feature_Servicing_TcpBatchOptimization__private_IsEnabled();
    if (uVar2 != 0) {
@@ -3128,7 +3183,7 @@ pie showData
    }
    TcpipSystemProcess = PsGetCurrentProcess();
    TcpipDriverObject = param_1;
-   KeInitializeMutex(&DAT_0,0);
+   KeInitializeMutex((PRKMUTEX)&DAT_0,0);
    TcpipIsVailGuest = IsSystemRunningAsVailGuest();
    TcpipProductType = GetProductType();
    uVar9 = 0;
@@ -3160,16 +3215,16 @@ pie showData
    NetioSetTriageBlock(1);
    InitializeTelemetryAssertsKM(param_2);
    uVar6 = 0;
-   memset(local_144,0,0x118);
-   puVar5 = &local_148;
-   local_148 = 0x11c;
-   iVar3 = RtlGetVersion();
-   if ((-1 < iVar3) && (local_2e != '\x01')) {
+   memset(local_148 + 4,0,0x118);
+   lpVersionInformation = (PRTL_OSVERSIONINFOW)local_148;
+   local_148._0_4_ = 0x11c;
+   NVar4 = RtlGetVersion(lpVersionInformation);
+   if ((-1 < NVar4) && (local_2e != '\x01')) {
      TcpipIsServerSKU = 1;
    }
-   iVar3 = TcpipStartTrace(puVar5,uVar6);
+   iVar3 = TcpipStartTrace(lpVersionInformation,uVar6);
    if (-1 < iVar3) {
-     KeInitializeMutex(&PktMonCompMutex,0);
+     KeInitializeMutex((PRKMUTEX)&PktMonCompMutex,0);
      DAT_2 = &PktMonCompList;
      PktMonCompList = &PktMonCompList;
      _DAT_3 = &NPI_MS_TCP_MODULEID;
@@ -3178,16 +3233,12 @@ pie showData
      if (-1 < iVar3) {
        iVar3 = TcpipPcwStartup();
        if (-1 < iVar3) {
-         iVar3 = InitializeMemoryUsageTracking();
-         if (-1 < iVar3) {
-           local_168 = &TcpipDeviceObject;
-           local_170 = 0;
-           local_178 = local_178 & 0xffffffff00000000;
-           iVar3 = IoCreateDevice(param_1,0,0);
-           if (-1 < iVar3) {
+         NVar4 = InitializeMemoryUsageTracking();
+         if (-1 < NVar4) {
+           NVar4 = IoCreateDevice(param_1,0,(PUNICODE_STRING)0x0,0x12,0,'\0',&TcpipDeviceObject);
+           if (-1 < NVar4) {
              pcVar8 = (char *)0x0;
-             local_178 = 0;
-             KeWaitForSingleObject(&DAT_0,0,0);
+             KeWaitForSingleObject(&DAT_0,Executive,'\0','\0',(PLARGE_INTEGER)0x0);
              iVar3 = NetioRegisterProcessorAddCallback(&DAT_5,TcpipProcessorAddCallback,0);
              if (-1 < iVar3) {
                DAT_6 = KeQueryActiveProcessorCountEx(0xffff);
@@ -3202,18 +3253,18 @@ pie showData
                  _DAT_9 = 0;
                  WppInitKm();
                  puVar7 = &RssStartedModules;
-                 uVar4 = 5;
+                 uVar5 = 5;
                  iVar3 = RtlInvokeStartRoutines(&RssStartStopRoutines);
                  RssPagesLocked = 0;
                  if (-1 < iVar3) {
                    iVar3 = TlStartup();
                    if (-1 < iVar3) {
-                     uVar4 = NlStartup(param_1,uVar4,(ulonglong)puVar7,pcVar8);
-                     if (-1 < (int)uVar4) {
+                     uVar5 = NlStartup(param_1,uVar5,(ulonglong)puVar7,pcVar8);
+                     if (-1 < (int)uVar5) {
                        iVar3 = FlStartup();
                        if (-1 < iVar3) {
-                         uVar4 = TcpipPowerStartup();
-                         if (-1 < (int)uVar4) {
+                         uVar2 = TcpipPowerStartup();
+                         if (-1 < (int)uVar2) {
                            TlgRegisterAggregateProvider(0x1c02117d8);
                            TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(0x1c0211810,0,0);
                            cVar1 = IsSystemRunningAsVailGuest();
@@ -3231,7 +3282,7 @@ pie showData
                                IpsLbStartup();
                              }
                            }
-                           KeReleaseMutex(&DAT_0,0);
+                           KeReleaseMutex((PRKMUTEX)&DAT_0,'\0');
                            goto LAB_11;
                          }
                          FlCleanup();
@@ -3247,7 +3298,7 @@ pie showData
                }
                NetioUnRegisterProcessorAddCallback(&DAT_5);
              }
-             KeReleaseMutex(&DAT_0,0);
+             KeReleaseMutex((PRKMUTEX)&DAT_0,'\0');
              IoDeleteDevice(TcpipDeviceObject);
            }
          }
@@ -3259,7 +3310,7 @@ pie showData
    }
    wil_UninitializeFeatureStaging();
  LAB_11:
-   __security_check_cookie(local_28 ^ (ulonglong)auStack_198);
+   __security_check_cookie(local_28 ^ (ulonglong)auStackY_198);
    return;
  }
  
@@ -3408,4 +3459,4 @@ pie showData
 
 
 
-<sub>Generated with `ghidriff` version: 0.7.2 on 2024-08-16T16:52:43</sub>
+<sub>Generated with `ghidriff` version: 0.7.2 on 2024-08-16T17:03:00</sub>
